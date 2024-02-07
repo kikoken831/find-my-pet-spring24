@@ -1,5 +1,8 @@
 # find-my-pet-spring24
 
+# set up .env
+create .env and copy and paste content from env.example
+
 # update and install dependencies
 command > ```npm install```
 
