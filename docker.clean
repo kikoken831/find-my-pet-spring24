@@ -1,0 +1,7 @@
+# clear docker image
+
+docker compose kill
+docker compose rm -f
+docker volume prune -f
+docker rm find-my-pet-spring24-postgres-1
+docker volume rm find-my-pet-spring24_postgres_data
