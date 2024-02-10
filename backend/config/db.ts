@@ -4,4 +4,4 @@ const prisma = new PrismaClient()
 
 const { user: UserRepository } = prisma
 
-export { UserRepository };
+export { UserRepository }

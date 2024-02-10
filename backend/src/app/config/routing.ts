@@ -1,11 +1,8 @@
-import '../handlers/passport';
+import '../handlers/passport'
 
-import {
-  Action,
-  RoutingControllersOptions,
-} from 'routing-controllers';
+import { Action, RoutingControllersOptions } from 'routing-controllers'
 
-import controllers from "../controllers"
+import controllers from '../controllers'
 
 export const routingOptions: RoutingControllersOptions = {
   cors: true,
@@ -14,4 +11,4 @@ export const routingOptions: RoutingControllersOptions = {
   middlewares: [],
   authorizationChecker: () => new Promise<boolean>((resolve, reject) => {}),
   currentUserChecker: (action: Action) => action.request.user,
-};
+}
