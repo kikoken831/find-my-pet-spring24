@@ -1,5 +1,6 @@
 # find-my-pet-spring24
 
+# SERVICE 
 # set up .env
 create .env and copy and paste content from env.example
 
@@ -19,3 +20,4 @@ command > ```npm run db:migrate```
 cd to /server and start server
 command > npm start
 
+# FRONTEND
