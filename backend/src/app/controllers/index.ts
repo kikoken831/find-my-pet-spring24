@@ -1,5 +1,5 @@
-import { TestController } from "./test";
+import { TestController } from './test'
 
-const controllers: Array<any> = [TestController];
+const controllers: Array<any> = [TestController]
 
-export default controllers;
+export default controllers
