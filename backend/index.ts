@@ -7,6 +7,10 @@ dotenv.config()
 
 const app = FindMyPet.initialiseApplication(routingOptions)
 
+app.get('/', (_, res) => {
+  res.json({ status: 'ok' })
+})
+
 app.listen(process.env.PORT_NUMBER, async () => {
   console.log(`Server is listening on port ${process.env.PORT_NUMBER}`)
 })
