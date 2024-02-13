@@ -1,0 +1,18 @@
+_format_version: "3.0"
+_transform: true
+
+services:
+  - name: backend
+    url: http://host.docker.internal:5000
+    routes:
+      - name: backend-route
+        paths:
+          - /service
+        strip_path: true
+  - name: frontend
+    url: http://host.docker.internal:3000
+    routes:
+      - name: frontend-route
+        paths:
+          - /
+        strip_path: true
