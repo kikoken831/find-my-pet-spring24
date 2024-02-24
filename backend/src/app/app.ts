@@ -4,6 +4,7 @@ import {
   RoutingControllersOptions,
   createExpressServer,
 } from 'routing-controllers'
+import 'reflect-metadata'
 
 dotenv.config()
 
