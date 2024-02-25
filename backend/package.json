@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.ts",
-    "db:migrate": "npx prisma migrate dev --name init",
+    "db:migrate": "npx prisma format && npx prisma migrate dev --name init",
     "prettier": "npx prettier . --write",
     "lint": "eslint \"src/**/*.{ts}\" --quiet"
   },

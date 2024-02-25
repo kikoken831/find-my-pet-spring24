@@ -1,5 +1,5 @@
 import { User } from '@prisma/client'
-import { UserRepository } from '../../../../config/db'
+import { UserRepository } from '../../../../../config/db'
 import { NotFoundError } from 'routing-controllers'
 
 export class UserService {
