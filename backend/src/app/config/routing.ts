@@ -1,10 +1,7 @@
-import '../handlers/passport'
-
-import { Action, RoutingControllersOptions } from 'routing-controllers'
-
+import '../middleware/passport'
 import controllers from './controller'
-import { ErrorHandler } from '../middleware/ErrorHandler'
-import { RequestLoggingMiddleware } from '../middleware/RequestLogger'
+import { Action, RoutingControllersOptions } from 'routing-controllers'
+import { ErrorHandler, RequestLoggingMiddleware } from '../middleware'
 
 export const routingOptions: RoutingControllersOptions = {
   cors: true,

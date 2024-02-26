@@ -1,6 +1,4 @@
-import { UserController } from '../services/account/controller/user.controller'
-import { CommentController } from '../services/comment/controller/comment.controller'
-import { PostController } from '../services/post/controller/post.controller'
+import { UserController, CommentController, PostController } from '../services'
 
 const controllers: Array<any> = [
   UserController,
