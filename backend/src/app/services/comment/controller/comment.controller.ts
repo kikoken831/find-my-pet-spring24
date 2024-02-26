@@ -1,8 +1,10 @@
-import { Get, JsonController, Param } from 'routing-controllers'
+import { Get, JsonController, Param, UseBefore } from 'routing-controllers'
 import { Comment } from '@prisma/client'
 import { CommentService } from '../service/comment.service'
+import { ParamsValidatorMiddleware } from '../../../middleware'
 
 @JsonController('/comment')
+@UseBefore(ParamsValidatorMiddleware)
 export class CommentController {
   @Get('/')
   async getAllComments(): Promise<Comment[]> {
