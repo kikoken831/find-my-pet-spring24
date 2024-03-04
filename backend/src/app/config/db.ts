@@ -1,3 +1,11 @@
 import { PrismaClient } from '@prisma/client'
+
 const prisma = new PrismaClient()
-export default prisma
+
+const {
+  user: UserRepository,
+  post: PostRepository,
+  comment: CommentRepository,
+} = prisma
+
+export { UserRepository, PostRepository, CommentRepository }
