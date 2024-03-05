@@ -1,7 +1,6 @@
 import React, { Suspense } from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
-import { MapContainer, TileLayer } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 
 import Locator from '../Component/Locator/locator'
@@ -21,10 +20,10 @@ export const PageRouter: React.FC = () => {
         <Route path="/" element={<div>main</div>} />
       </Routes>
       <Routes>
-        <Route path="/report" element={<Report></Report>} />
+        <Route path="/report" element={<Report />} />
       </Routes>
       <Routes>
-        <Route path="/locator" element={<Locator></Locator>} />
+        <Route path="/locator" element={<Locator />} />
       </Routes>
       <Routes>
         <Route path="/profile" element={<div>myprofile</div>} />

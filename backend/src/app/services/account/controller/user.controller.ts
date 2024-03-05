@@ -10,18 +10,22 @@ import {
 import { User } from '@prisma/client'
 import { UserService } from '../service/user.service'
 import { ParamsValidatorMiddleware } from '../../../middleware'
-import { CreateUserDto, UpdateUserPasswordDto } from '../model/user.model'
+import {
+  CreateUserDto,
+  IUser,
+  UpdateUserPasswordDto,
+} from '../model/user.model'
 
 @JsonController('/user')
 @UseBefore(ParamsValidatorMiddleware)
 export class UserController {
   @Get('/')
-  async getAllUsers(): Promise<User[]> {
+  async getAllUsers(): Promise<IUser[]> {
     return new UserService().getAllUsers()
   }
 
   @Get('/:id')
-  async getUserById(@Param('id') id: number): Promise<User | null> {
+  async getUserById(@Param('id') id: number): Promise<IUser | null> {
     return new UserService().getUserById({ id })
   }
 

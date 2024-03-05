@@ -3,6 +3,8 @@ import { IsNotEmpty, IsString } from 'class-validator'
 
 export type UserId = Pick<User, 'id'>
 
+export type IUser = Omit<User, 'password'>
+
 export class CreateUserDto {
   @IsString()
   @IsNotEmpty()
