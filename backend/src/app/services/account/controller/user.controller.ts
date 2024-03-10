@@ -1,5 +1,7 @@
 import {
+  Authorized,
   Body,
+  CurrentUser,
   Get,
   JsonController,
   Param,
@@ -14,11 +16,14 @@ import {
   CreateUserDto,
   IUser,
   UpdateUserPasswordDto,
+  UserWithToken,
 } from '../model/user.model'
+import { RoleType } from '../../../common/constants'
 
 @JsonController('/user')
 @UseBefore(ParamsValidatorMiddleware)
 export class UserController {
+  @Authorized([RoleType.ADMIN])
   @Get('/')
   async getAllUsers(): Promise<IUser[]> {
     return new UserService().getAllUsers()
@@ -32,10 +37,11 @@ export class UserController {
   @Post('/')
   async createUser(
     @Body({ type: CreateUserDto }) createUserDto: CreateUserDto,
-  ): Promise<User> {
+  ): Promise<UserWithToken> {
     return new UserService().createUser(createUserDto)
   }
 
+  @Authorized([])
   @Put('/:id')
   async UpdateUserPasswordById(
     @Body({ type: UpdateUserPasswordDto })

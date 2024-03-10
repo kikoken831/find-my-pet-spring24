@@ -20,7 +20,6 @@ export class ErrorHandler implements ExpressErrorMiddlewareInterface {
   private static readonly HTTP_STATUS_CODE_SERVER_ERROR = 500
 
   error(error: any, _: Request, response: Response): void {
-    // const errorId = error.errorId;
     const errorResp = this.getErrorRespBody(error)
     console.error(error)
     response.status(

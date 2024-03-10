@@ -5,9 +5,11 @@ import {
   CreateUserDto,
   IUser,
   UpdateUserPasswordDto,
+  UserWithToken,
 } from '../model/user.model'
 import { hashSync } from 'bcrypt'
 import { RoleType } from '../../../common/constants'
+import JwtService from '../../../common/jwtService'
 export class UserService {
   async getAllUsers(): Promise<IUser[]> {
     return await UserRepository.findMany({
@@ -43,7 +45,7 @@ export class UserService {
     return user
   }
 
-  async createUser(createUserDto: CreateUserDto): Promise<User> {
+  async createUser(createUserDto: CreateUserDto): Promise<UserWithToken> {
     const { password } = createUserDto
     const hashPassword = hashSync(password, 10)
     const user = await UserRepository.create({
@@ -57,11 +59,12 @@ export class UserService {
         },
       },
       include: {
-        roles: true,
+        roles: false,
       },
     })
+    const token = JwtService.signToken(user)
 
-    return user
+    return { ...user, token }
   }
 
   async updateUserPasswordById(
