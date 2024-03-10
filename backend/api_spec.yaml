@@ -1,0 +1,161 @@
+components:
+  schemas:
+    CreateUserDto:
+      properties:
+        name:
+          minLength: 1
+          type: string
+        password:
+          minLength: 1
+          type: string
+      type: object
+      required:
+        - name
+        - password
+    UpdateUserPasswordDto:
+      properties:
+        password:
+          minLength: 1
+          type: string
+      type: object
+      required:
+        - password
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+info:
+  title: Find My Pet
+  version: 1.0.0
+  description: Fall 2024
+openapi: 3.0.0
+paths:
+  /user/:
+    get:
+      operationId: UserController.getAllUsers
+      responses:
+        '200':
+          content:
+            application/json: {}
+          description: Successful response
+      summary: Get all users
+      tags:
+        - User
+    post:
+      operationId: UserController.createUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUserDto'
+        description: CreateUserDto
+        required: false
+      responses:
+        '200':
+          content:
+            application/json: {}
+          description: Successful response
+      summary: Create user
+      tags:
+        - User
+  /user/{id}:
+    get:
+      operationId: UserController.getUserById
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            pattern: '[^\/#\?]+?'
+            type: number
+      responses:
+        '200':
+          content:
+            application/json: {}
+          description: Successful response
+      summary: Get user by id
+      tags:
+        - User
+    put:
+      operationId: UserController.UpdateUserPasswordById
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            pattern: '[^\/#\?]+?'
+            type: number
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateUserPasswordDto'
+        description: UpdateUserPasswordDto
+        required: false
+      responses:
+        '200':
+          content:
+            application/json: {}
+          description: Successful response
+      summary: Update user password by id
+      tags:
+        - User
+  /post/:
+    get:
+      operationId: PostController.getAllPosts
+      responses:
+        '200':
+          content:
+            application/json: {}
+          description: Successful response
+      summary: Get all posts
+      tags:
+        - Post
+  /post/{id}:
+    get:
+      operationId: PostController.getPostById
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            pattern: '[^\/#\?]+?'
+            type: number
+      responses:
+        '200':
+          content:
+            application/json: {}
+          description: Successful response
+      summary: Get post by id
+      tags:
+        - Post
+  /comment/:
+    get:
+      operationId: CommentController.getAllComments
+      responses:
+        '200':
+          content:
+            application/json: {}
+          description: Successful response
+      summary: Get all comments
+      tags:
+        - Comment
+  /comment/{id}:
+    get:
+      operationId: CommentController.getCommentById
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            pattern: '[^\/#\?]+?'
+            type: number
+      responses:
+        '200':
+          content:
+            application/json: {}
+          description: Successful response
+      summary: Get comment by id
+      tags:
+        - Comment
