@@ -114,7 +114,7 @@ const Report = () => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Lost Pet Found
+            Findmypet
           </Typography>
         </Toolbar>
       </AppBar>
@@ -141,7 +141,7 @@ const Report = () => {
           </IconButton>
         </DrawerHeader>
         <Divider />
-        <List>
+        {/* <List>
           {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
             <ListItem key={text} disablePadding>
               <ListItemButton>
@@ -165,7 +165,7 @@ const Report = () => {
               </ListItemButton>
             </ListItem>
           ))}
-        </List>
+        </List> */}
         <Divider />
         <List>
           <ListItemButton onClick={scrollToTarget}>

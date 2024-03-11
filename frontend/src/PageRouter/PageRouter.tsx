@@ -8,6 +8,8 @@ import Report from '../Component/Report/report'
 import ReportHistory from '../Component/Report/reportHistory'
 import Sidebar from '../Component/sidebar/Sidebar'
 import Footer from '../Component/footer/footer'
+import Login from '../Component/Login/login'
+import Register from '../Component/Login/register'
 
 export const PageRouter: React.FC = () => {
   return (
@@ -33,6 +35,12 @@ export const PageRouter: React.FC = () => {
           path="/reportHistory"
           element={<ReportHistory></ReportHistory>}
         />
+      </Routes>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+      </Routes>
+      <Routes>
+        <Route path="/register" element={<Register />} />
       </Routes>
     </Router>
   )
