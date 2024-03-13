@@ -1,5 +1,9 @@
 import controllers from './controller'
-import { Action, RoutingControllersOptions } from 'routing-controllers'
+import {
+  Action,
+  RoutingControllersOptions,
+  UnauthorizedError,
+} from 'routing-controllers'
 import { ErrorHandler, RequestLoggingMiddleware } from '../middleware'
 import { RoleType } from '../common/constants'
 import JwtService from '../common/jwtService'
@@ -16,9 +20,14 @@ export const routingOptions: RoutingControllersOptions = {
 
       if (!jwt.isTokenValid()) resolve(false)
 
-      const authorised = await validateUserRoles(action, jwt, roles)
+      try {
+        const authorised = await validateUserRoles(action, jwt, roles)
+        resolve(authorised)
+      } catch (err) {
+        if (err instanceof UnauthorizedError) return new UnauthorizedError()
 
-      resolve(authorised)
+        resolve(false)
+      }
     }),
   currentUserChecker: (action: Action) => action.request.user,
 }

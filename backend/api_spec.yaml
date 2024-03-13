@@ -159,3 +159,5 @@ paths:
       summary: Get comment by id
       tags:
         - Comment
+servers:
+  - url: http://localhost:8000/service

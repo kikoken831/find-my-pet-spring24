@@ -1,4 +1,4 @@
-import { Action } from 'routing-controllers'
+import { Action, UnauthorizedError } from 'routing-controllers'
 import { UserRepository } from '../config/db'
 import JwtService from './jwtService'
 import { RoleType } from './constants'
@@ -17,9 +17,13 @@ export const validateUserRoles = async (
   jwt: JwtService,
   roles: RoleType[],
 ): Promise<boolean> => {
+  const id = jwt.decodedToken?.id
+
+  if (!id) throw new UnauthorizedError('You are not logged in')
+
   const user = await UserRepository.findUnique({
     where: {
-      id: jwt.decodedToken!.id,
+      id,
     },
     select: {
       id: true,

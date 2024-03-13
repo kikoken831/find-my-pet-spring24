@@ -31,6 +31,7 @@ export function useSwagger(app: Application) {
       title: 'Find My Pet',
       version: '1.0.0',
     },
+    servers: [{ url: 'http://localhost:8000/service' }],
   })
 
   app.use('/docs', swaggerUi.serve, swaggerUi.setup(spec))
