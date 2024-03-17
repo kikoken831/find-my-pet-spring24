@@ -23,7 +23,7 @@ import { RoleType } from '../../../common/constants'
 @JsonController('/user')
 @UseBefore(ParamsValidatorMiddleware)
 export class UserController {
-  @Authorized([RoleType.ADMIN])
+  @Authorized([RoleType.USER])
   @Get('/')
   async getAllUsers(): Promise<IUser[]> {
     return new UserService().getAllUsers()

@@ -159,5 +159,7 @@ paths:
       summary: Get comment by id
       tags:
         - Comment
+security:
+  - bearerAuth: []
 servers:
   - url: http://localhost:8000/service

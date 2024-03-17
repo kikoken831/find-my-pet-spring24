@@ -31,6 +31,7 @@ export function useSwagger(app: Application) {
       title: 'Find My Pet',
       version: '1.0.0',
     },
+    security: [{ bearerAuth: [] }],
     servers: [{ url: 'http://localhost:8000/service' }],
   })
 
