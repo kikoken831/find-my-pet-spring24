@@ -1,5 +1,5 @@
-import { User } from '@prisma/client'
 import jwt, { JwtPayload } from 'jsonwebtoken'
+import { IUser } from '../services/account/model/user.model'
 
 class JwtService {
   token: string
@@ -38,7 +38,7 @@ class JwtService {
     ) as JwtPayload
   }
 
-  static signToken(user: User): string {
+  static signToken(user: IUser): string {
     const payload = {
       id: user.id,
       name: user.name,

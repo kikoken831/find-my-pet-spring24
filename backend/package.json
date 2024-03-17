@@ -6,8 +6,13 @@
   "scripts": {
     "start": "nodemon index.ts",
     "db:migrate": "npx prisma format && npx prisma migrate dev --name init",
+    "db:seed": "npx prisma db seed",
+    "db:reset": "npx prisma migrate reset;",
     "prettier": "npx prettier . --write",
     "lint": "eslint \"src/**/*.{ts}\" --quiet"
+  },
+  "prisma": {
+    "seed": "ts-node ./prisma/seed.ts"
   },
   "keywords": [],
   "author": "",

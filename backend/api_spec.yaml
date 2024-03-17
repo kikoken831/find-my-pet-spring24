@@ -2,14 +2,21 @@ components:
   schemas:
     CreateUserDto:
       properties:
+        username:
+          pattern: .{4,}
+          type: string
+          minLength: 1
         name:
-          minLength: 1
+          pattern: .{4,}
           type: string
+          minLength: 1
         password:
-          minLength: 1
+          pattern: ^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$
           type: string
+          minLength: 1
       type: object
       required:
+        - username
         - name
         - password
     UpdateUserPasswordDto:
@@ -19,6 +26,18 @@ components:
           type: string
       type: object
       required:
+        - password
+    UserLoginDto:
+      properties:
+        username:
+          minLength: 1
+          type: string
+        password:
+          minLength: 1
+          type: string
+      type: object
+      required:
+        - username
         - password
   securitySchemes:
     bearerAuth:
@@ -159,6 +178,24 @@ paths:
       summary: Get comment by id
       tags:
         - Comment
+  /auth/:
+    post:
+      operationId: AuthController.login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserLoginDto'
+        description: UserLoginDto
+        required: false
+      responses:
+        '200':
+          content:
+            application/json: {}
+          description: Successful response
+      summary: Login
+      tags:
+        - Auth
 security:
   - bearerAuth: []
 servers:

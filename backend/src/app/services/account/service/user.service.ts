@@ -10,11 +10,13 @@ import {
 import { hashSync } from 'bcrypt'
 import { RoleType } from '../../../common/constants'
 import JwtService from '../../../common/jwtService'
+import { create } from 'domain'
 export class UserService {
   async getAllUsers(): Promise<IUser[]> {
     return await UserRepository.findMany({
       select: {
         id: true,
+        username: true,
         name: true,
         createdAt: true,
         updatedAt: true,
@@ -31,6 +33,7 @@ export class UserService {
       },
       select: {
         id: true,
+        username: true,
         name: true,
         createdAt: true,
         updatedAt: true,
@@ -47,9 +50,11 @@ export class UserService {
 
   async createUser(createUserDto: CreateUserDto): Promise<UserWithToken> {
     const { password } = createUserDto
+
     const hashPassword = hashSync(password, 10)
     const user = await UserRepository.create({
       data: {
+        username: createUserDto.username,
         name: createUserDto.name,
         password: hashPassword,
         roles: {
