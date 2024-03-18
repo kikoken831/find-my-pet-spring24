@@ -15,16 +15,17 @@ type ErrorResponseBody = {
   type: 'after',
 })
 export class ErrorHandler implements ExpressErrorMiddlewareInterface {
-  private static readonly SERVER_ERROR_MESSAGE: string = 'Interal Server Error.'
+  private static readonly SERVER_ERROR_MESSAGE: string =
+    'Internal Server Error.'
 
   private static readonly HTTP_STATUS_CODE_SERVER_ERROR = 500
 
   error(error: any, _: Request, response: Response): void {
     const errorResp = this.getErrorRespBody(error)
 
-    if (process.env.DETAILED_ERROR_LOGS?.toString() === 'true')
-      console.error(error)
-    else console.info(errorResp)
+    process.env.DETAILED_ERROR_LOGS?.toString() === 'true'
+      ? console.error(error)
+      : console.info(errorResp)
 
     response.status(
       error.httpCode || ErrorHandler.HTTP_STATUS_CODE_SERVER_ERROR,
