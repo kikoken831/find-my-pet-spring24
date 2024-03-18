@@ -6,34 +6,42 @@ const prisma = new PrismaClient()
 const defaultPassword =
   '$2b$10$ede2tHnyXlW0byayug6MDe3LFtwpqiVxdZBCyFdfu0YsvG5clBSy6' // password
 
+const users = [
+  {
+    name: 'weijie',
+    password: defaultPassword,
+    roles: [RoleType.ADMIN, RoleType.USER],
+  },
+  {
+    name: 'jovia',
+    password: defaultPassword,
+    roles: [RoleType.ADMIN],
+  },
+  {
+    name: 'kendrick',
+    password: defaultPassword,
+    roles: [RoleType.ADMIN],
+  },
+  {
+    name: 'david',
+    password: defaultPassword,
+    roles: [RoleType.ADMIN],
+  },
+  {
+    name: 'guest',
+    password: defaultPassword,
+    roles: [RoleType.GUEST],
+  },
+]
+
 const main = async () => {
-  await Promise.all([
+  users.forEach((user) => {
     createUserWithRole({
-      name: 'weijie',
-      password: defaultPassword,
-      roles: [RoleType.ADMIN, RoleType.USER],
-    }),
-    createUserWithRole({
-      name: 'jovia',
-      password: defaultPassword,
-      roles: [RoleType.ADMIN],
-    }),
-    createUserWithRole({
-      name: 'kendrick',
-      password: defaultPassword,
-      roles: [RoleType.ADMIN],
-    }),
-    createUserWithRole({
-      name: 'david',
-      password: defaultPassword,
-      roles: [RoleType.ADMIN],
-    }),
-    createUserWithRole({
-      name: 'guest',
-      password: defaultPassword,
-      roles: [RoleType.GUEST],
-    }),
-  ])
+      name: user.name,
+      password: user.password,
+      roles: user.roles,
+    })
+  })
 }
 
 const createUserWithRole = async ({
