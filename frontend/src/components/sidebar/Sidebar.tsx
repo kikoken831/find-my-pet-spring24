@@ -22,6 +22,8 @@ import { useNavigate } from 'react-router-dom'
 import ListItemDecorator, {
   listItemDecoratorClasses,
 } from '@mui/joy/ListItemDecorator'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../store'
 
 const drawerWidth = 240
 
@@ -98,6 +100,7 @@ const Report = () => {
   const scrollToTarget3 = () => {
     navigateTo('/reportHistory')
   }
+  const token = useSelector((state: RootState) => state.auth.token)
 
   return (
     <Box sx={{ display: 'flex' }}>
