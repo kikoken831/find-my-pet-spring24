@@ -21,10 +21,15 @@ export class ErrorHandler implements ExpressErrorMiddlewareInterface {
 
   error(error: any, _: Request, response: Response): void {
     const errorResp = this.getErrorRespBody(error)
-    console.error(error)
+
+    if (process.env.DETAILED_ERROR_LOGS?.toString() === 'true')
+      console.error(error)
+    else console.info(errorResp)
+
     response.status(
       error.httpCode || ErrorHandler.HTTP_STATUS_CODE_SERVER_ERROR,
     )
+
     response.json(errorResp)
   }
 
