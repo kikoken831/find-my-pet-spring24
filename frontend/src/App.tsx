@@ -22,12 +22,10 @@ export const App: React.FC = () => {
   }
 
   return (
-    <>
-      <Router>
-        <ToastContainer />
-        <GetRoutes />
-      </Router>
-    </>
+    <Router>
+      <ToastContainer />
+      <GetRoutes />
+    </Router>
   )
 }
 
