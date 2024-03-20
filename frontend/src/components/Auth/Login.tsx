@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import { useNavigate } from 'react-router-dom'
 import {
   TextField,
   Button,
@@ -27,9 +26,7 @@ const LoginPage = () => {
       error: loginRequestError,
       reset: resetLoginRequestStatus,
     },
-  ] = useLogin({
-    fixedCacheKey: 'useLogin',
-  })
+  ] = useLogin()
 
   const onSubmit = (value: any) => {
     login(value)
@@ -42,6 +39,7 @@ const LoginPage = () => {
     loginRequestStatus,
     loginRequestError,
     resetLoginRequestStatus,
+    dispatch,
   ])
 
   return (

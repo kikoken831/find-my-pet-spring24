@@ -6,15 +6,12 @@ import { validate } from 'class-validator'
 @Middleware({ type: 'before' })
 export class ParamsValidatorMiddleware implements ExpressMiddlewareInterface {
   async use(req: Request, _: Response, next: NextFunction) {
-    console.log(req)
     const params = { ...req.params }
-
     this.validateParams(params)
     next()
   }
 
   private validateParams(params: any): any {
-    console.log(params)
     const validatedParams: any = {}
     for (const key in params) {
       if (params.hasOwnProperty(key)) {

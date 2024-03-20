@@ -1,13 +1,19 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
-import { authSlice } from '../../store/auth'
-import { useAppSelector } from '../../common'
+import { logout } from '../../store/auth'
+import { useAppDispatch } from '../../common'
 
 const Main = () => {
-  const token = useAppSelector((state) => state.auth.token)
+  const dispatch = useAppDispatch()
+  const onLogout = () => {
+    localStorage.removeItem('token')
+    dispatch(logout())
+  }
 
-  console.log(token)
-  return <div>Main</div>
+  return (
+    <div>
+      Main
+      <button onClick={() => onLogout()}>logout</button>
+    </div>
+  )
 }
 
 export default Main

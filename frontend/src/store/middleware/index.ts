@@ -23,17 +23,7 @@ const RequestHeaderMiddleware = async (
 ): Promise<Response> => {
   const token = localStorage.getItem('token')
 
-  if (!token) {
-    const response = await fetch(input, { ...init })
-    if (response.ok) {
-      const responseData = await response.json()
-      const tokenFromResponse = responseData.token
-      if (tokenFromResponse) {
-        localStorage.setItem('token', tokenFromResponse)
-      }
-    }
-    return response
-  }
+  if (!token) return await fetch(input, { ...init })
 
   return await fetch(input, {
     ...init,
