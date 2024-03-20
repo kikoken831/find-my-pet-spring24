@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import {
@@ -12,20 +12,37 @@ import {
   Box,
 } from '@mui/material'
 import { Link as RouterLink } from 'react-router-dom'
+import { useLogin } from '../../store/auth/api'
+import { setToken } from '../../store/auth'
+import { useAppDispatch } from '../../common'
 
 const LoginPage = () => {
+  const dispatch = useAppDispatch()
   const { handleSubmit, register } = useForm()
+  const [
+    login,
+    {
+      data: loginResponseData,
+      status: loginRequestStatus,
+      error: loginRequestError,
+      reset: resetLoginRequestStatus,
+    },
+  ] = useLogin({
+    fixedCacheKey: 'useLogin',
+  })
 
   const onSubmit = (value: any) => {
-    console.log(JSON.stringify(value))
-    console.log('hello')
+    login(value)
   }
 
-  const navigateTo = useNavigate()
-
-  const scrollToTarget = () => {
-    navigateTo('/login')
-  }
+  useEffect(() => {
+    if (loginResponseData?.token) dispatch(setToken(loginResponseData.token))
+  }, [
+    loginResponseData,
+    loginRequestStatus,
+    loginRequestError,
+    resetLoginRequestStatus,
+  ])
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
