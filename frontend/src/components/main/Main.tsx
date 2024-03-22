@@ -1,10 +1,9 @@
-import { logout } from '../../store/auth'
 import { useAppDispatch } from '../../common'
+import { logout } from '../../store/auth'
 
 const Main = () => {
   const dispatch = useAppDispatch()
   const onLogout = () => {
-    localStorage.removeItem('token')
     dispatch(logout())
   }
 

@@ -14,6 +14,7 @@ import { Link as RouterLink } from 'react-router-dom'
 import { useLogin } from '../../store/auth/api'
 import { setToken } from '../../store/auth'
 import { useAppDispatch } from '../../common'
+import useLoading from '../../hooks/useLoader'
 
 const LoginPage = () => {
   const dispatch = useAppDispatch()
@@ -24,6 +25,7 @@ const LoginPage = () => {
       data: loginResponseData,
       status: loginRequestStatus,
       error: loginRequestError,
+      isLoading,
       reset: resetLoginRequestStatus,
     },
   ] = useLogin()
@@ -41,6 +43,8 @@ const LoginPage = () => {
     resetLoginRequestStatus,
     dispatch,
   ])
+
+  useLoading(isLoading)
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
