@@ -11,10 +11,12 @@ import {
   Box,
 } from '@mui/material'
 import { Link as RouterLink } from 'react-router-dom'
-import { useLogin } from '../../store/auth/api'
+import { AuthResponseModel, useLogin } from '../../store/auth/api'
 import { setToken } from '../../store/auth'
 import { useAppDispatch } from '../../common'
 import useLoading from '../../hooks/useLoader'
+import { GuestResponseModel, useGuestLogin } from '../../store/guest/api'
+import { setUser } from '../../store/user'
 
 const LoginPage = () => {
   const dispatch = useAppDispatch()
@@ -25,17 +27,39 @@ const LoginPage = () => {
       data: loginResponseData,
       status: loginRequestStatus,
       error: loginRequestError,
-      isLoading,
+      isLoading: loginRequestLoading,
       reset: resetLoginRequestStatus,
     },
   ] = useLogin()
+
+  const [
+    guestLogin,
+    {
+      data: guestResponseData,
+      status: guestRequestStatus,
+      error: guestRequestError,
+      isLoading: guestRequestLoading,
+      reset: resetGuestRequestStatus,
+    },
+  ] = useGuestLogin()
 
   const onSubmit = (value: any) => {
     login(value)
   }
 
+  const onGuestLogin = () => {
+    guestLogin(null)
+  }
+
+  const setUserDetails = (user: AuthResponseModel | GuestResponseModel) => {
+    dispatch(setToken(user.token))
+    dispatch(setUser({ ...user }))
+  }
+
   useEffect(() => {
-    if (loginResponseData?.token) dispatch(setToken(loginResponseData.token))
+    if (loginResponseData?.token) {
+      setUserDetails(loginResponseData)
+    }
   }, [
     loginResponseData,
     loginRequestStatus,
@@ -44,7 +68,19 @@ const LoginPage = () => {
     dispatch,
   ])
 
-  useLoading(isLoading)
+  useEffect(() => {
+    if (guestResponseData?.token) {
+      setUserDetails(guestResponseData)
+    }
+  }, [
+    guestResponseData,
+    guestRequestStatus,
+    guestRequestError,
+    resetGuestRequestStatus,
+    dispatch,
+  ])
+
+  useLoading(loginRequestLoading || guestRequestLoading)
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -92,9 +128,7 @@ const LoginPage = () => {
                 Register
               </Link>
               {' or '}
-              <Link component={RouterLink} to="/">
-                Continue as Guest
-              </Link>
+              <Link onClick={() => onGuestLogin()}>Continue as Guest</Link>
             </Typography>
           </Paper>
         </Container>

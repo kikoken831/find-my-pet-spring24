@@ -50,6 +50,17 @@ info:
   description: Fall 2024
 openapi: 3.0.0
 paths:
+  /user/retrieve-info:
+    post:
+      operationId: UserController.getUserDetail
+      responses:
+        '200':
+          content:
+            application/json: {}
+          description: Successful response
+      summary: Get user detail
+      tags:
+        - User
   /user/:
     get:
       operationId: UserController.getAllUsers
@@ -118,6 +129,17 @@ paths:
             application/json: {}
           description: Successful response
       summary: Update user password by id
+      tags:
+        - User
+  /user/guest:
+    post:
+      operationId: UserController.guestLogin
+      responses:
+        '200':
+          content:
+            application/json: {}
+          description: Successful response
+      summary: Guest login
       tags:
         - User
   /post/:

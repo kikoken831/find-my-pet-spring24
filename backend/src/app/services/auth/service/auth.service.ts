@@ -27,6 +27,7 @@ export class AuthService {
       id: user.id,
       username: user.username,
       name: user.name,
+      isGuest: user.isGuest,
       createdAt: user.createdAt,
       updatedAt: user.updatedAt,
       roles: user.roles.map((role) => role.name as RoleType),

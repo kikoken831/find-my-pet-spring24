@@ -1,36 +1,48 @@
 import { RoleType } from '../src/app/common/constants'
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient, Role } from '@prisma/client'
 
 const prisma = new PrismaClient()
 
 const defaultPassword =
   '$2b$10$ede2tHnyXlW0byayug6MDe3LFtwpqiVxdZBCyFdfu0YsvG5clBSy6' // password
 
-const users = [
+interface IUser {
+  name: string
+  password: string
+  roles: RoleType[]
+  isGuest: boolean
+}
+
+const users: IUser[] = [
   {
     name: 'weijie',
     password: defaultPassword,
     roles: [RoleType.ADMIN, RoleType.USER],
+    isGuest: false,
   },
   {
     name: 'jovia',
     password: defaultPassword,
     roles: [RoleType.ADMIN],
+    isGuest: false,
   },
   {
     name: 'kendrick',
     password: defaultPassword,
     roles: [RoleType.ADMIN],
+    isGuest: false,
   },
   {
     name: 'david',
     password: defaultPassword,
     roles: [RoleType.ADMIN],
+    isGuest: false,
   },
   {
     name: 'guest',
     password: defaultPassword,
     roles: [RoleType.GUEST],
+    isGuest: true,
   },
 ]
 
@@ -40,6 +52,7 @@ const main = async () => {
       name: user.name,
       password: user.password,
       roles: user.roles,
+      isGuest: user.isGuest,
     })
   })
 }
@@ -48,16 +61,19 @@ const createUserWithRole = async ({
   name,
   password,
   roles,
+  isGuest,
 }: {
   name: string
   password: string
   roles: RoleType[]
+  isGuest: boolean
 }) => {
   const user = await prisma.user.create({
     data: {
       username: name,
       name,
       password,
+      isGuest,
     },
   })
 

@@ -19,10 +19,17 @@ import {
   UserWithToken,
 } from '../model/user.model'
 import { RoleType } from '../../../common/constants'
+import { UserContext } from '../../auth/model/auth.model'
 
 @JsonController('/user')
 @UseBefore(ParamsValidatorMiddleware)
 export class UserController {
+  @Authorized([])
+  @Post('/retrieve-info')
+  async getUserDetail(@CurrentUser() currentUser: any): Promise<IUser | null> {
+    return new UserService().getUserById({ id: currentUser.id })
+  }
+
   @Authorized([RoleType.USER])
   @Get('/')
   async getAllUsers(): Promise<IUser[]> {
@@ -49,5 +56,10 @@ export class UserController {
     @Param('id') id: number,
   ): Promise<User> {
     return new UserService().updateUserPasswordById(id, updateUserPasswordDto)
+  }
+
+  @Post('/guest')
+  async guestLogin(): Promise<UserWithToken> {
+    return new UserService().guestLogin()
   }
 }

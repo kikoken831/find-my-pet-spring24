@@ -7,23 +7,20 @@ export interface AuthResponseModel {
   id: number
   username: string
   name: string
-  isGuest: boolean
   token: string
+  isGuest: boolean
   roles: RoleType[]
   createdAt: Date
   updatedAt: Date
 }
 
-const authApi = createApi({
-  reducerPath: 'authApi',
+const userApi = createApi({
+  reducerPath: 'userApi',
   endpoints: (builders) => ({
-    login: builders.mutation<
-      AuthResponseModel,
-      { username: string; password: string }
-    >({
-      query: ({ username, password }) => ({
-        url: '/auth',
-        body: { username, password },
+    detail: builders.mutation<AuthResponseModel, { token: string }>({
+      query: ({ token }) => ({
+        url: '/user/retrieve-info',
+        body: { token },
         method: 'POST',
       }),
     }),
@@ -34,5 +31,5 @@ const authApi = createApi({
   }),
 })
 
-export const { useLoginMutation: useLogin } = authApi
-export default authApi
+export const { useDetailMutation } = userApi
+export default userApi
