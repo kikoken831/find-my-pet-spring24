@@ -16,6 +16,8 @@ import BottomDrawer from './BottomDrawer'
 import './styles.css'
 import { set } from 'react-hook-form'
 import RightDrawer from './RightDrawer'
+import StatisticsBtn from './StatisticsBtn'
+import ChartsDrawer from './ChartsDrawer'
 
 export interface MapDefaultProps {}
 let map: any
@@ -28,6 +30,7 @@ const Locator = () => {
   //const [map,setMap] = useState({})
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   const [rightDrawerOpen, setRightDrawerOpen] = useState(false)
+  const [isStatsDrawerOpen, setIsStatsDrawerOpen] = useState(false)
   const geojsonDataRef = useRef<any>(null)
   const geojsonDataRef2 = useRef<any>(null)
   const geojsonDataRef3 = useRef<any>(null)
@@ -202,6 +205,11 @@ const Locator = () => {
       })
   }
 
+  const handleButtonClick = () => {
+    console.log('Button clicked!')
+    setIsStatsDrawerOpen(!isStatsDrawerOpen)
+  }
+
   useEffect(() => {
     fetchSheterData()
     fetchDogData()
@@ -218,8 +226,6 @@ const Locator = () => {
         dragging={true}
         zoomControl={true}
       >
-        <BottomDrawer isVisible={isDrawerOpen} onClose={closeDrawer} />
-
         <LayersControl position="topleft">
           <BaseLayer checked name="Open Street Map">
             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
@@ -316,6 +322,7 @@ const Locator = () => {
           />
           <Circle center={[51.51, -0.06]} radius={200} />
         </FeatureGroup>
+        <StatisticsBtn onClick={handleButtonClick} icon="" title="Click me!" />
       </MapContainer>
 
       <RightDrawer
@@ -323,6 +330,11 @@ const Locator = () => {
         isRightDrawerClose={handleCloseDrawer}
         geojsonData={geojsonDataRef4.current}
       />
+      <ChartsDrawer
+        open={isStatsDrawerOpen}
+        onClose={() => setIsStatsDrawerOpen(false)}
+      />
+      <BottomDrawer isVisible={isDrawerOpen} onClose={closeDrawer} />
     </Fragment>
   )
 }
