@@ -18,7 +18,7 @@ export const App: React.FC = () => {
   const token = useToken()
 
   const GetRoutes = () => {
-    if (!token) return <UnauthenticatedRoutes />
+    //if (!token) return <UnauthenticatedRoutes />
     return <AuthenticatedRoutes />
   }
 
