@@ -22,6 +22,8 @@ import { useNavigate } from 'react-router-dom'
 import ListItemDecorator, {
   listItemDecoratorClasses,
 } from '@mui/joy/ListItemDecorator'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../store'
 
 const drawerWidth = 240
 
@@ -98,6 +100,7 @@ const Report = () => {
   const scrollToTarget3 = () => {
     navigateTo('/reportHistory')
   }
+  const token = useSelector((state: RootState) => state.auth.token)
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -114,7 +117,7 @@ const Report = () => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Lost Pet Found
+            Findmypet
           </Typography>
         </Toolbar>
       </AppBar>
@@ -141,7 +144,7 @@ const Report = () => {
           </IconButton>
         </DrawerHeader>
         <Divider />
-        <List>
+        {/* <List>
           {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
             <ListItem key={text} disablePadding>
               <ListItemButton>
@@ -165,7 +168,7 @@ const Report = () => {
               </ListItemButton>
             </ListItem>
           ))}
-        </List>
+        </List> */}
         <Divider />
         <List>
           <ListItemButton onClick={scrollToTarget}>

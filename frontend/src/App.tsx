@@ -3,30 +3,28 @@ import 'react-toastify/dist/ReactToastify.css'
 
 import React from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import Locator from './Component/Locator/locator'
-import Report from './Component/Report/report'
-import ReportHistory from './Component/Report/reportHistory'
-import Sidebar from './Component/sidebar/Sidebar'
-import Main from './Component/main/Main'
-import LoginPage from './Component/Auth/Login'
-import RegisterPage from './Component/Auth/Register'
+import Locator from './components/Locator/locator'
+import Report from './components/Report/report'
+import ReportHistory from './components/Report/reportHistory'
+import Sidebar from './components/sidebar/Sidebar'
+import Main from './components/main/Main'
+import LoginPage from './components/Auth/Login'
+import RegisterPage from './components/Auth/Register'
 import { ToastContainer } from 'react-toastify'
 import useToken from './hooks/useToken'
-import Loader from './Component/common/Loader'
+import Loader from './components/common/Loader'
 
 export const App: React.FC = () => {
   const token = useToken()
 
   const GetRoutes = () => {
     if (!token) return <UnauthenticatedRoutes />
-
     return <AuthenticatedRoutes />
   }
 
   return (
     <Router>
       <Loader />
-      <div>{token && <Sidebar />}</div>
       <GetRoutes />
       <ToastContainer />
     </Router>
