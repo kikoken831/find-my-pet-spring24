@@ -1,0 +1,327 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-84.33527788092653, 33.7352371042599]
+      },
+      "properties": {
+        "Name": "Pumkin",
+        "Lost_Date": "20221110",
+        "Age": "5",
+        "Weight": "10",
+        "Category": "Hamster"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-84.26534841444652, 33.837122967613865]
+      },
+      "properties": {
+        "Name": "Snoopy",
+        "Lost_Date": "20240206",
+        "Age": "10",
+        "Weight": "15",
+        "Category": "Hamster"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-84.42559574196194, 33.61615390711692]
+      },
+      "properties": {
+        "Name": "Orio",
+        "Lost_Date": "20240205",
+        "Age": "8",
+        "Weight": "15",
+        "Category": "Hamster"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-84.19533543428946, 33.704431117634265]
+      },
+      "properties": {
+        "Name": "NIuNiu",
+        "Lost_Date": "20220205",
+        "Age": "7",
+        "Weight": "14",
+        "Category": "Hamster"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-84.34395799698808, 33.68469276461172]
+      },
+      "properties": {
+        "Name": "Kate",
+        "Lost_Date": "20230205",
+        "Age": "6",
+        "Weight": "34",
+        "Category": "Hamster"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-84.43117781025539, 33.704431117634265]
+      },
+      "properties": {
+        "Name": "Peaunt",
+        "Lost_Date": "20210205",
+        "Age": "5",
+        "Weight": "12",
+        "Category": "Hamster"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-84.38970478907012, 33.83146286975271]
+      },
+      "properties": {
+        "Name": "BoBo",
+        "Lost_Date": "20200214",
+        "Age": "2",
+        "Weight": "20",
+        "Category": "Hamster"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-84.2670519265507, 33.78333690643945]
+      },
+      "properties": {
+        "Name": "PoPo",
+        "Lost_Date": "20201201",
+        "Age": "9",
+        "Weight": "14",
+        "Category": "Hamster"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-84.40673990831553, 33.86541783631418]
+      },
+      "properties": {
+        "Name": "DoDo",
+        "Lost_Date": "20220207",
+        "Age": "7",
+        "Weight": "13",
+        "Category": "Hamster"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-84.46976985167944, 33.87956175483453]
+      },
+      "properties": {
+        "Name": "Abby",
+        "Lost_Date": "20190212",
+        "Age": "5",
+        "Weight": "14",
+        "Category": "Hamster"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-84.50384009196688, 33.72951704355048]
+      },
+      "properties": {
+        "Name": "Ace",
+        "Lost_Date": "20240209",
+        "Age": "6",
+        "Weight": "15",
+        "Category": "Hamster"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-84.48510145971896, 33.66999263871141]
+      },
+      "properties": {
+        "Name": "Ice",
+        "Lost_Date": "20210218",
+        "Age": "4",
+        "Weight": "16",
+        "Category": "Hamster"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-84.40844342041974, 33.66999263871141]
+      },
+      "properties": {
+        "Name": "Aero",
+        "Lost_Date": "20240110",
+        "Age": "2",
+        "Weight": "17",
+        "Category": "Hamster"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-84.32837835781042, 33.62886839330328]
+      },
+      "properties": {
+        "Name": "Abbott",
+        "Lost_Date": "20210110",
+        "Age": "7",
+        "Weight": "18",
+        "Category": "Hamster"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-84.27556948617341, 33.66715711449006]
+      },
+      "properties": {
+        "Name": "Heaven",
+        "Lost_Date": "20240705",
+        "Age": "6",
+        "Weight": "19",
+        "Category": "Hamster"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-84.31815728608352, 33.813064962568035]
+      },
+      "properties": {
+        "Name": "Gale",
+        "Lost_Date": "20240914",
+        "Age": "5",
+        "Weight": "20",
+        "Category": "Hamster"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-84.35563454968104, 33.91349759612094]
+      },
+      "properties": {
+        "Name": "Lily",
+        "Lost_Date": "20240712",
+        "Age": "4",
+        "Weight": "21",
+        "Category": "Hamster"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-84.2517203185112, 33.743683440481966]
+      },
+      "properties": {
+        "Name": "Lolly",
+        "Lost_Date": "20240402",
+        "Age": "5",
+        "Weight": "22",
+        "Category": "Hamster"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-84.46275138263658, 33.82280219420223]
+      },
+      "properties": {
+        "Name": "Princess",
+        "Lost_Date": "20180830",
+        "Age": "4",
+        "Weight": "30",
+        "Category": "Hamster"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-84.37989255949367, 33.64327829573976]
+      },
+      "properties": {
+        "Name": "Vivi",
+        "Lost_Date": "20190630",
+        "Age": "5",
+        "Weight": "35",
+        "Category": "Hamster"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-84.50745153680133, 33.62875491938978]
+      },
+      "properties": {
+        "Name": "Zee",
+        "Lost_Date": "20190530",
+        "Age": "3",
+        "Weight": "32",
+        "Category": "Hamster"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-84.31883869056588, 33.78203429809094]
+      },
+      "properties": {
+        "Name": "Boomer",
+        "Lost_Date": "20180330",
+        "Age": "6",
+        "Weight": "31",
+        "Category": "Hamster"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-84.24365521155102, 33.797365305268535]
+      },
+      "properties": {
+        "Name": "Brownie",
+        "Lost_Date": "20190430",
+        "Age": "7",
+        "Weight": "35",
+        "Category": "Hamster"
+      }
+    }
+  ]
+}

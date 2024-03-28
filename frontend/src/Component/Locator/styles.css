@@ -1,0 +1,6 @@
+.leaflet-draw-toolbar .leaflet-draw-draw-marker {
+  background-image: url('../../../public/resize_doggie.png') !important;
+  background-position: 50% 50% !important;
+  background-size: 80% !important;
+  cursor: pointer;
+}

@@ -6,7 +6,8 @@ import { ExpressMiddlewareInterface, Middleware } from 'routing-controllers'
 })
 export class RequestLoggingMiddleware implements ExpressMiddlewareInterface {
   use(request: Request, _: Response, next: (err?: any) => any): any {
-    console.log(`${request.method} ${request.originalUrl}`)
+    if (!request.originalUrl.includes('/docs'))
+      console.log(`${request.method} ${request.originalUrl}`)
     next()
   }
 }

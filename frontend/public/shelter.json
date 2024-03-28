@@ -1,0 +1,175 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-84.526502, 33.7504585, 13]
+      },
+      "properties": {
+        "Name": "Atlanta Humane Society",
+        "Address": "1551 Perry Blvd NW, GA",
+        "Phone": "+14048755331",
+        "Website": "https://atlantahumane.org/",
+        "style": {}
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-84.5803014, 33.7855333, 0]
+      },
+      "properties": {
+        "Name": "Fulton County Animal Services",
+        "Address": "1251 Fulton Industrial Blvd NW, Atlanta, GA 30336",
+        "Phone": "404-613-0358",
+        "Website": "http://www.fultonanimalservices.com/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-84.2749333, 33.7314772, 0]
+      },
+      "properties": {
+        "Name": "PAWS Atlanta",
+        "Address": "5287 Covington Hwy, Decatur, GA 30035",
+        "Phone": "+17705931155",
+        "Website": "http://www.fultonanimalservices.com/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-84.3353125, 33.8874359, 0]
+      },
+      "properties": {
+        "Name": "LifeLine Animal Project",
+        "Address": "3180 Presidential Dr, Atlanta, GA 30340",
+        "Phone": "+14042928800",
+        "Website": "https://lifelineanimal.org/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-84.3353125, 33.8874359, 0]
+      },
+      "properties": {
+        "Name": "DeKalb County Animal Services",
+        "Address": "3280 Chamblee Dunwoody Rd, Chamblee, GA 30341",
+        "Phone": "+14042942996",
+        "Website": "http://dekalbanimalservices.com/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-84.3353125, 33.8874359, 0]
+      },
+      "properties": {
+        "Name": "LifeLine Animal Project Spay & Neuter Clinic",
+        "Address": "2533 Sullivan Rd, Atlanta, GA 30337",
+        "Phone": "+16789732881",
+        "Website": "http://lifelineanimal.org/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-84.4963483, 33.7673675, 0]
+      },
+      "properties": {
+        "Name": "W-Underdogs",
+        "Address": "476 Whitehall St SW, Atlanta, GA 30303",
+        "Phone": "+1778431880",
+        "Website": "https://w-underdogs.org"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-84.4425679, 33.7758901, 0]
+      },
+      "properties": {
+        "Name": "Furkids Midtown ATL",
+        "Address": "Inside Petsmart, 650 Ponce De Leon Ave NE, Atlanta, GA 30308",
+        "Phone": "+1775102810",
+        "Website": "https://furkids.org/cat-adoptions/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-84.7043112, 32.5762265, 0]
+      },
+      "properties": {
+        "Name": "PALS",
+        "Address": "1530 DeKalb Ave NE # A, Atlanta, GA 30307",
+        "Phone": "+14048767257",
+        "Website": "http://www.palsatlanta.org/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-84.4867954, 33.7817327, 0]
+      },
+      "properties": {
+        "Name": "CANINE CELLMATES",
+        "Address": "981 Howell Mill Rd, Atlanta, GA 30318",
+        "Phone": "+16785282200",
+        "Website": "http://caninecellmates.org/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-84.4867954, 33.7817327, 0]
+      },
+      "properties": {
+        "Name": "Pets for Life",
+        "Address": "809 Hollywood Rd NW, Atlanta, GA 30318",
+        "Phone": "+18882971683",
+        "Website": "http://lifelineanimal.org/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-84.5280404, 33.8688314, 0]
+      },
+      "properties": {
+        "Name": "Bosley's Place",
+        "Address": "3485 S Cobb Dr SE, Smyrna, GA 30080",
+        "Phone": "+14045654025",
+        "Website": "http://www.bosleysplace.com/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-84.3320181, 33.8860658, 0]
+      },
+      "properties": {
+        "Name": "Humane Association of Ga Inc",
+        "Address": "1317 Hearst Dr NE, Atlanta, GA 30319",
+        "Phone": "+14048270603",
+        "Website": "http://humaneassociationofgaInc"
+      }
+    }
+  ]
+}

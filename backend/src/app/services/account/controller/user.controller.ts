@@ -1,5 +1,7 @@
 import {
+  Authorized,
   Body,
+  CurrentUser,
   Get,
   JsonController,
   Param,
@@ -10,28 +12,43 @@ import {
 import { User } from '@prisma/client'
 import { UserService } from '../service/user.service'
 import { ParamsValidatorMiddleware } from '../../../middleware'
-import { CreateUserDto, UpdateUserPasswordDto } from '../model/user.model'
+import {
+  CreateUserDto,
+  IUser,
+  UpdateUserPasswordDto,
+  UserWithToken,
+} from '../model/user.model'
+import { RoleType } from '../../../common/constants'
+import { UserContext } from '../../auth/model/auth.model'
 
 @JsonController('/user')
 @UseBefore(ParamsValidatorMiddleware)
 export class UserController {
+  @Authorized([])
+  @Post('/retrieve-info')
+  async getUserDetail(@CurrentUser() currentUser: any): Promise<IUser | null> {
+    return new UserService().getUserById({ id: currentUser.id })
+  }
+
+  @Authorized([RoleType.USER])
   @Get('/')
-  async getAllUsers(): Promise<User[]> {
+  async getAllUsers(): Promise<IUser[]> {
     return new UserService().getAllUsers()
   }
 
   @Get('/:id')
-  async getUserById(@Param('id') id: number): Promise<User | null> {
+  async getUserById(@Param('id') id: number): Promise<IUser | null> {
     return new UserService().getUserById({ id })
   }
 
   @Post('/')
   async createUser(
     @Body({ type: CreateUserDto }) createUserDto: CreateUserDto,
-  ): Promise<User> {
+  ): Promise<UserWithToken> {
     return new UserService().createUser(createUserDto)
   }
 
+  @Authorized([])
   @Put('/:id')
   async UpdateUserPasswordById(
     @Body({ type: UpdateUserPasswordDto })
@@ -39,5 +56,10 @@ export class UserController {
     @Param('id') id: number,
   ): Promise<User> {
     return new UserService().updateUserPasswordById(id, updateUserPasswordDto)
+  }
+
+  @Post('/guest')
+  async guestLogin(): Promise<UserWithToken> {
+    return new UserService().guestLogin()
   }
 }
