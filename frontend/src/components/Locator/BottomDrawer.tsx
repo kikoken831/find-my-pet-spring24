@@ -5,6 +5,7 @@ import TextField from '@mui/material/TextField'
 import { styled } from '@mui/system'
 import Radio from '@mui/joy/Radio'
 import RadioGroup from '@mui/joy/RadioGroup'
+import { useMapEvents, useMap } from 'react-leaflet'
 import {
   Typography,
   Link,
@@ -61,6 +62,8 @@ interface BottomDrawerProps {
   markerPos: any
   fetchAllData: () => void
   iconCateogry: String
+  isRemovedMarker: Boolean
+  onBoolChange: (newValue: boolean) => void
 }
 
 const BottomDrawer: React.FC<BottomDrawerProps> = ({
@@ -69,6 +72,8 @@ const BottomDrawer: React.FC<BottomDrawerProps> = ({
   markerPos,
   fetchAllData,
   iconCateogry,
+  isRemovedMarker,
+  onBoolChange,
 }) => {
   const [formData, setFormData] = useState<FormData>({
     name: '',
@@ -104,6 +109,19 @@ const BottomDrawer: React.FC<BottomDrawerProps> = ({
     xml += '</myworkspace:Hamster_Merge>'
     xml += '</wfs:Insert>'
     xml += '</wfs:Transaction>'
+
+    if (
+      formData.name == '' ||
+      formData.Lost_Date == '' ||
+      formData.Age == '' ||
+      formData.Weight == ''
+    ) {
+      alert('Please Try Again and Fill in All the Information!!!')
+      //map.removeLayer(market)
+      onBoolChange(true)
+
+      return
+    }
 
     fetch('/geoserver/wfs', {
       method: 'POST',

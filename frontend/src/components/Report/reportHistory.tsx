@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import dayjs, { Dayjs } from 'dayjs'
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
@@ -7,6 +7,7 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 import { useForm } from 'react-hook-form'
 import { styled } from '@mui/material/styles'
 import CloudUploadIcon from '@mui/icons-material/CloudUpload'
+import { useLocation } from 'react-router-dom'
 import {
   AppBar,
   Container,
@@ -29,32 +30,15 @@ import {
   Radio,
 } from '@mui/material'
 
-const report_list = [
-  {
-    id: 1,
-    text: '我是第一条数据',
-  },
-  {
-    id: 2,
-    text: '我是第二条数据',
-  },
-  {
-    id: 3,
-    text: '我是第三条数据',
-  },
-]
-/*
-<div>
-<ul>
-  {report_list.map((item) => {
-    // if (item.id === 2) return
-    return <li key={item.id}>{item.text}</li>
-  })}
-</ul>
-</div>
-*/
+const getFeatureObject = () => {
+  // Retrieve the serialized feature from local storage
+  const serializedFeature: any = localStorage.getItem('feature')
+  // Parse the serialized string back into an object
+  const feature = JSON.parse(serializedFeature)
+  return feature
+}
 
-const HistoryRendering = () => {
+function HistoryRendering() {
   const [value, setValue] = React.useState<Dayjs | null>(dayjs('2022-04-17'))
   const [formData] = useState({
     date: '04-17-2022',
@@ -66,13 +50,9 @@ const HistoryRendering = () => {
     contactPhone: '650-450-6426',
   })
 
-  /*
-  const [posts, setPosts] = useState([])
+  const [feature, setFeature] = useState(getFeatureObject())
 
-  useEffect(()=>{
-
-  },[])  
-  */
+  console.log('feature............', feature.properties)
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -121,7 +101,7 @@ const HistoryRendering = () => {
                       label="Date Lost/Found"
                       fullWidth
                       variant="standard"
-                      value={formData.date}
+                      value={feature.properties.Lost_Date}
                     />
                   </Grid>
                   <Grid item xs={12} sm={6}>
@@ -130,25 +110,17 @@ const HistoryRendering = () => {
                       label="Type of Pet (Dog, Cat, etc.)"
                       fullWidth
                       variant="standard"
-                      value={formData.petType}
+                      value={feature.properties.Category}
                     />
                   </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <TextField
-                      required
-                      label="Breed of Pet"
-                      fullWidth
-                      variant="standard"
-                      value={formData.petBreed}
-                    />
-                  </Grid>
+
                   <Grid item xs={12}>
                     <TextField
                       required
-                      label="City where pet was lost or found"
+                      label="lat/lng where pet was lost"
                       fullWidth
                       variant="standard"
-                      value={formData.city}
+                      value={feature.geometry.coordinates}
                     />
                   </Grid>
                   <Grid item xs={12}>
@@ -157,7 +129,7 @@ const HistoryRendering = () => {
                       label="Age of pet"
                       fullWidth
                       variant="standard"
-                      value={formData.intersection}
+                      value={feature.properties.Age}
                     />
                   </Grid>
                   <Grid item xs={12}>

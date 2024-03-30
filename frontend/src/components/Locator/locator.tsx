@@ -20,6 +20,7 @@ import { set } from 'react-hook-form'
 import RightDrawer from './RightDrawer'
 import StatisticsBtn from './StatisticsBtn'
 import ChartsDrawer from './ChartsDrawer'
+import { Link, LinkProps } from 'react-router-dom'
 
 export interface MapDefaultProps {}
 
@@ -38,6 +39,7 @@ const Locator = () => {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const [iconCateogry, setIconCateogry] = useState('')
+  const [isRemovedMarker, setIsRemovedMarker] = useState(false)
 
   const dogIcon = new L.Icon({
     className: 'custom-marker-icon',
@@ -75,38 +77,7 @@ const Locator = () => {
     popupAnchor: [-3, -76], // point from which the popup should open relative to the iconAnchor
   })
 
-  const _onCreate = (e: any) => {
-    //console.log('created........................', e)
-    const { layerType, layer } = e
-    const { map } = layer
-
-    var content =
-      '<h2>Lost Notice</h2>' +
-      '<img width="123" height="100"  src="./tank.jpg"></img>' +
-      '<div style="line-height: 0px;margin-top:10px">Lost date：17/2/2024</div>' +
-      '<p style="line-height: 0px;">Name：Tank</p>' +
-      '<p style="line-height: 0px;">Age：3</p>' +
-      '<p style="line-height: 0px;">Weight：30lbs</p>' +
-      '<p style="line-height: 0px;">Report location：</p>' +
-      '<a >123 El Camino St</a>' +
-      '<p></p>' +
-      '<span style="margin-right: 3px;">See More:</span>' +
-      '<a href="/reportHistory">Details</a>'
-
-    const markerObj = e.target._targets
-    const markers = Object.keys(e.target._targets)
-
-    const latest_marker = parseInt(markers[markers.length - 1])
-
-    const curr_marker = markerObj[latest_marker]
-
-    //curr_marker.bindPopup(content).openPopup()
-    setIsDrawerOpen((prevIsDrawerOpen) => !prevIsDrawerOpen)
-
-    //add features and send to geoserver
-    setMarkerPos(e.layer._latlng)
-    layer.removeFrom(layer._map)
-  }
+  const _onCreate = (e: any) => {}
 
   const closeDrawer = () => {
     setIsDrawerOpen(false)
@@ -208,8 +179,25 @@ const Locator = () => {
 
         //map.removeLayer(market)
         map.removeEventListener('click', handleMouseMove)
+
+        if (isRemovedMarker) {
+          console.log('Removedddddddddddddddddddddddddddddddddd')
+          map.removeLayer(market)
+          setIsRemovedMarker(!isRemovedMarker)
+        }
       }
     })
+  }
+
+  const handleBoolChange = (newValue: boolean) => {
+    setIsRemovedMarker(newValue)
+  }
+
+  const setFeatureObject = (feature: any) => {
+    // Serialize the feature object
+    const serializedFeature = JSON.stringify(feature)
+    // Store in local storage
+    localStorage.setItem('feature', serializedFeature)
   }
 
   useEffect(() => {
@@ -258,7 +246,7 @@ const Locator = () => {
 
                     markers.bindPopup(content).openPopup()
 
-                    setRightDrawerOpen(true)
+                    //setRightDrawerOpen(true)
                   })
                   return markers
                 }}
@@ -276,6 +264,8 @@ const Locator = () => {
                     markers = L.marker(latlng, { icon: customIcon })
 
                     markers.on('click', function (e: any) {
+                      localStorage.removeItem('feature')
+                      setFeatureObject(feature)
                       var position = markers.getLatLng()
                       setMarkerPos(position)
                       var content = `<center><h2>Lost Pet Notice</h2>
@@ -288,6 +278,7 @@ const Locator = () => {
                         <p style="line-height: 0px;">Lost Date: ${feature.properties.Lost_Date}</p>
                         <span style="margin-right: 3px;">See More:</span>
                         <a href="/reportHistory">Details</a></center>`
+
                       markers.bindPopup(content).openPopup()
 
                       setRightDrawerOpen(true)
@@ -309,6 +300,8 @@ const Locator = () => {
                     const customIcon = catIcon
                     markers = L.marker(latlng, { icon: customIcon })
                     markers.on('click', function (e: any) {
+                      localStorage.removeItem('feature')
+                      setFeatureObject(feature)
                       var position = markers.getLatLng()
                       setMarkerPos(position)
                       var content = `<center><h2>Lost Pet Notice</h2>
@@ -343,6 +336,8 @@ const Locator = () => {
                     markers = L.marker(latlng, { icon: customIcon })
 
                     markers.on('click', function (e: any) {
+                      localStorage.removeItem('feature')
+                      setFeatureObject(feature)
                       var position = markers.getLatLng()
                       setMarkerPos(position)
                       var content = `<center><h2>Lost Pet Notice</h2>
@@ -469,6 +464,8 @@ const Locator = () => {
         markerPos={markerPos}
         fetchAllData={fetchAllData}
         iconCateogry={iconCateogry}
+        isRemovedMarker={isRemovedMarker}
+        onBoolChange={handleBoolChange}
       />
     </Fragment>
   )
