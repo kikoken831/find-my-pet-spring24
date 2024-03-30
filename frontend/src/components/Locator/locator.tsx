@@ -9,6 +9,8 @@ import {
   Circle,
   GeoJSON,
   LayersControl,
+  useMapEvents,
+  useMap,
 } from 'react-leaflet'
 import { EditControl } from 'react-leaflet-draw'
 import 'leaflet-draw/dist/leaflet.draw.css'
@@ -20,9 +22,6 @@ import StatisticsBtn from './StatisticsBtn'
 import ChartsDrawer from './ChartsDrawer'
 
 export interface MapDefaultProps {}
-let map: any
-let circle
-let geojson: any
 
 const { BaseLayer, Overlay } = LayersControl
 
@@ -31,13 +30,14 @@ const Locator = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   const [rightDrawerOpen, setRightDrawerOpen] = useState(false)
   const [isStatsDrawerOpen, setIsStatsDrawerOpen] = useState(false)
+  const [markerPos, setMarkerPos] = useState({})
   const geojsonDataRef = useRef<any>(null)
   const geojsonDataRef2 = useRef<any>(null)
   const geojsonDataRef3 = useRef<any>(null)
   const geojsonDataRef4 = useRef<any>(null)
-  //const [geojsonData, setGeojsonData] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
+  const [iconCateogry, setIconCateogry] = useState('')
 
   const dogIcon = new L.Icon({
     className: 'custom-marker-icon',
@@ -76,7 +76,10 @@ const Locator = () => {
   })
 
   const _onCreate = (e: any) => {
-    console.log('created........................', e)
+    //console.log('created........................', e)
+    const { layerType, layer } = e
+    const { map } = layer
+
     var content =
       '<h2>Lost Notice</h2>' +
       '<img width="123" height="100"  src="./tank.jpg"></img>' +
@@ -98,11 +101,12 @@ const Locator = () => {
     const curr_marker = markerObj[latest_marker]
 
     //curr_marker.bindPopup(content).openPopup()
-
     setIsDrawerOpen((prevIsDrawerOpen) => !prevIsDrawerOpen)
+
+    //add features and send to geoserver
+    setMarkerPos(e.layer._latlng)
+    layer.removeFrom(layer._map)
   }
-  const _onEdited = (e: any) => {}
-  const _onDeleted = (e: any) => {}
 
   const closeDrawer = () => {
     setIsDrawerOpen(false)
@@ -113,8 +117,8 @@ const Locator = () => {
     setRightDrawerOpen(false)
   }
 
-  const fetchDogData = () => {
-    fetch('/dog.json')
+  const fetchShelterData = () => {
+    fetch(`./shelter.json`)
       .then((response) => {
         if (!response.ok) {
           throw new Error('Failed to fetch GeoJSON data')
@@ -136,8 +140,10 @@ const Locator = () => {
       })
   }
 
-  const fetchSheterData = () => {
-    fetch('/shelter.json')
+  const fetchAllData = () => {
+    fetch(
+      `/geoserver/myworkspace/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=myworkspace%3AHamster_Merge&maxFeatures=300&outputFormat=application%2Fjson`,
+    )
       .then((response) => {
         if (!response.ok) {
           throw new Error('Failed to fetch GeoJSON data')
@@ -145,57 +151,11 @@ const Locator = () => {
         return response.json()
       })
       .then((data) => {
-        console.log('Fetched GeoJSON data:', data) // Log the fetched data
+        console.log('Fetched geoserver GeoJSON data:.....', data) // Log the fetched data
         if (!data || !data.features || data.features.length === 0) {
           throw new Error('GeoJSON data is empty or does not contain features')
         }
         geojsonDataRef2.current = data
-        setLoading(false)
-      })
-      .catch((error) => {
-        console.error('Error fetching GeoJSON data:', error)
-        setError(error.message)
-        setLoading(false)
-      })
-  }
-
-  const fetchCatData = () => {
-    fetch('/Cat.json')
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Failed to fetch GeoJSON data')
-        }
-        return response.json()
-      })
-      .then((data) => {
-        console.log('Fetched GeoJSON data:', data) // Log the fetched data
-        if (!data || !data.features || data.features.length === 0) {
-          throw new Error('GeoJSON data is empty or does not contain features')
-        }
-        geojsonDataRef3.current = data
-        setLoading(false)
-      })
-      .catch((error) => {
-        console.error('Error fetching GeoJSON data:', error)
-        setError(error.message)
-        setLoading(false)
-      })
-  }
-
-  const fetchHamsterData = () => {
-    fetch('/Hamster.json')
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Failed to fetch GeoJSON data')
-        }
-        return response.json()
-      })
-      .then((data) => {
-        console.log('Fetched GeoJSON data:', data) // Log the fetched data
-        if (!data || !data.features || data.features.length === 0) {
-          throw new Error('GeoJSON data is empty or does not contain features')
-        }
-        geojsonDataRef4.current = data
         setLoading(false)
       })
       .catch((error) => {
@@ -210,11 +170,49 @@ const Locator = () => {
     setIsStatsDrawerOpen(!isStatsDrawerOpen)
   }
 
+  const MyComponent = () => {
+    const map = useMapEvents({
+      click: (e: any) => {
+        const addBtn = e.originalEvent.target.className
+        const { lat, lng } = e.latlng
+        if (addBtn == 'InsertDog') {
+          setIconCateogry('Dog')
+          handleInsertClick(e, map, dogIcon)
+        }
+        if (addBtn == 'InsertCat') {
+          setIconCateogry('cat')
+          handleInsertClick(e, map, catIcon)
+        }
+        if (addBtn == 'InsertHamster') {
+          setIconCateogry('Hamster')
+          handleInsertClick(e, map, hamsterIcon)
+        }
+      },
+    })
+    return null
+  }
+
+  const handleInsertClick = (e: any, map: any, iconImg: any) => {
+    map.addEventListener('click', function handleMouseMove(e: any) {
+      const { lat, lng } = e.latlng
+      setMarkerPos(e.latlng)
+      const customIcon = iconImg
+
+      const market = L.marker([lat, lng], { icon: customIcon })
+      market.addTo(map)
+
+      if (market) {
+        setIsDrawerOpen((prevIsDrawerOpen) => !prevIsDrawerOpen)
+
+        //map.removeLayer(market)
+        map.removeEventListener('click', handleMouseMove)
+      }
+    })
+  }
+
   useEffect(() => {
-    fetchSheterData()
-    fetchDogData()
-    fetchCatData()
-    fetchHamsterData()
+    fetchShelterData()
+    fetchAllData()
   }, [])
   return (
     <Fragment>
@@ -226,6 +224,7 @@ const Locator = () => {
         dragging={true}
         zoomControl={true}
       >
+        <MyComponent />
         <LayersControl position="topleft">
           <BaseLayer checked name="Open Street Map">
             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
@@ -237,13 +236,12 @@ const Locator = () => {
             {geojsonDataRef.current && (
               <GeoJSON
                 data={geojsonDataRef.current}
+                key="my-geojson"
                 pointToLayer={(feature: any, latlng: any) => {
                   const customIcon = shelterIcon
                   let markers = L.marker(latlng, { icon: customIcon })
                   markers.on('click', function (e) {
-                    var position = markers.getLatLng()
-                    console.log('position.................', position)
-                    setRightDrawerOpen(true)
+                    // setRightDrawerOpen(true)
                   })
                   return markers
                 }}
@@ -255,54 +253,100 @@ const Locator = () => {
               <GeoJSON
                 data={geojsonDataRef2.current}
                 pointToLayer={(feature: any, latlng: any) => {
-                  const customIcon = dogIcon
-                  let markers = L.marker(latlng, { icon: customIcon })
-                  markers.on('click', function (e) {
-                    var position = markers.getLatLng()
-                    console.log('position.................', position)
-                    setRightDrawerOpen(true)
-                  })
+                  let markers: any
+                  if (feature.properties.Category == 'Dog') {
+                    const customIcon = dogIcon
+                    markers = L.marker(latlng, { icon: customIcon })
+
+                    markers.on('click', function (e: any) {
+                      var position = markers.getLatLng()
+                      var content = `<center><h2>Lost Pet Notice</h2>
+                        <img width="123" height="100"  src="./tank.jpg"></img>
+                        <div style="line-height: 0px;margin-top:10px">Category：${feature.properties.Category}</div>
+                        <p style="line-height: 0px;">Name：${feature.properties.Name}</p>
+                        <p style="line-height: 0px;">Age：${feature.properties.Age}</p>
+                        <p style="line-height: 0px;">Weight：${feature.properties.Weight}</p>
+                        <p style="line-height: 0px;">Latlng：${feature.geometry.coordinates}</p>
+                        <p style="line-height: 0px;">Lost Date: ${feature.properties.Lost_Date}</p>
+                        <span style="margin-right: 3px;">See More:</span>
+                        <a href="/reportHistory">Details</a></center>`
+                      markers.bindPopup(content).openPopup()
+
+                      // setRightDrawerOpen(true)
+                    })
+                  }
                   return markers
                 }}
               />
             )}
           </Overlay>
           <Overlay checked name="Cat">
-            {geojsonDataRef3.current && (
+            {geojsonDataRef2.current && (
               <GeoJSON
-                data={geojsonDataRef3.current}
+                data={geojsonDataRef2.current}
                 pointToLayer={(feature: any, latlng: any) => {
-                  const customIcon = catIcon
-                  let markers = L.marker(latlng, { icon: customIcon })
-                  markers.on('click', function (e) {
-                    var position = markers.getLatLng()
-                    console.log('position.................', position)
-                    setRightDrawerOpen(true)
-                  })
+                  let markers: any
+
+                  if (feature.properties.Category == 'cat') {
+                    const customIcon = catIcon
+                    markers = L.marker(latlng, { icon: customIcon })
+                    markers.on('click', function (e: any) {
+                      var position = markers.getLatLng()
+                      var content = `<center><h2>Lost Pet Notice</h2>
+                        <img width="123" height="100"  src="./tank.jpg"></img>
+                        <div style="line-height: 0px;margin-top:10px">Category：${feature.properties.Category}</div>
+                        <p style="line-height: 0px;">Name：${feature.properties.Name}</p>
+                        <p style="line-height: 0px;">Age：${feature.properties.Age}</p>
+                        <p style="line-height: 0px;">Weight：${feature.properties.Weight}</p>
+                        <p style="line-height: 0px;">Latlng：${feature.geometry.coordinates}</p>
+                        <p style="line-height: 0px;">Lost Date: ${feature.properties.Lost_Date}</p>
+                        <span style="margin-right: 3px;">See More:</span>
+                        <a href="/reportHistory">Details</a></center>`
+                      markers.bindPopup(content).openPopup()
+
+                      //  setRightDrawerOpen(true)
+                    })
+                  }
                   return markers
                 }}
               />
             )}
           </Overlay>
           <Overlay checked name="Hamster">
-            {geojsonDataRef4.current && (
+            {geojsonDataRef2.current && (
               <GeoJSON
-                data={geojsonDataRef4.current}
+                data={geojsonDataRef2.current}
                 pointToLayer={(feature: any, latlng: any) => {
-                  const customIcon = hamsterIcon
-                  let markers = L.marker(latlng, { icon: customIcon })
-                  markers.on('click', function (e) {
-                    var position = markers.getLatLng()
-                    console.log('position.................', position)
-                    setRightDrawerOpen(true)
-                  })
+                  let markers: any
+
+                  if (feature.properties.Category == 'Hamster') {
+                    const customIcon = hamsterIcon
+                    markers = L.marker(latlng, { icon: customIcon })
+
+                    markers.on('click', function (e: any) {
+                      var position = markers.getLatLng()
+                      var content = `<center><h2>Lost Pet Notice</h2>
+                        <img width="123" height="100"  src="./tank.jpg"></img>
+                        <div style="line-height: 0px;margin-top:10px">Category：${feature.properties.Category}</div>
+                        <p style="line-height: 0px;">Name：${feature.properties.Name}</p>
+                        <p style="line-height: 0px;">Age：${feature.properties.Age}</p>
+                        <p style="line-height: 0px;">Weight：${feature.properties.Weight}</p>
+                        <p style="line-height: 0px;">Latlng：${feature.geometry.coordinates}</p>
+                        <p style="line-height: 0px;">Lost Date: ${feature.properties.Lost_Date}</p>
+                        <span style="margin-right: 3px;">See More:</span>
+                        <a href="/reportHistory">Details</a></center>`
+                      markers.bindPopup(content).openPopup()
+
+                      // setRightDrawerOpen(true)
+                    })
+                  }
                   return markers
                 }}
               />
             )}
           </Overlay>
         </LayersControl>
-
+        {/*
         <FeatureGroup>
           <EditControl
             position="topright"
@@ -322,7 +366,70 @@ const Locator = () => {
           />
           <Circle center={[51.51, -0.06]} radius={200} />
         </FeatureGroup>
+          */}
         <StatisticsBtn onClick={handleButtonClick} icon="" title="Click me!" />
+        <button
+          className="InsertBtn"
+          style={{
+            position: 'absolute',
+            top: '50px',
+            right: '10px',
+            zIndex: 1000,
+            backgroundColor: 'white',
+            paddingTop: '4px',
+            border: '1px solid #999',
+            borderRadius: '5px',
+            width: '35px',
+            height: '33px',
+            cursor: 'pointer',
+          }}
+        >
+          <img
+            src="./resize_doggie.png"
+            alt="Custom Icon"
+            className="InsertDog"
+          />
+        </button>
+        <button
+          className="InsertBtn"
+          style={{
+            position: 'absolute',
+            top: '90px',
+            right: '10px',
+            zIndex: 1000,
+            backgroundColor: 'white',
+            paddingTop: '4px',
+            border: '1px solid #999',
+            borderRadius: '5px',
+            width: '35px',
+            height: '33px',
+            cursor: 'pointer',
+          }}
+        >
+          <img src="./resize_cat.png" alt="Custom Icon" className="InsertCat" />
+        </button>
+        <button
+          className="InsertBtn"
+          style={{
+            position: 'absolute',
+            top: '130px',
+            right: '10px',
+            zIndex: 1000,
+            backgroundColor: 'white',
+            paddingTop: '4px',
+            border: '1px solid #999',
+            borderRadius: '5px',
+            width: '35px',
+            height: '33px',
+            cursor: 'pointer',
+          }}
+        >
+          <img
+            src="./resize_hamster.png"
+            alt="Custom Icon"
+            className="InsertHamster"
+          />
+        </button>
       </MapContainer>
 
       <RightDrawer
@@ -333,8 +440,15 @@ const Locator = () => {
       <ChartsDrawer
         open={isStatsDrawerOpen}
         onClose={() => setIsStatsDrawerOpen(false)}
+        geojsonData={geojsonDataRef2.current}
       />
-      <BottomDrawer isVisible={isDrawerOpen} onClose={closeDrawer} />
+      <BottomDrawer
+        isVisible={isDrawerOpen}
+        onClose={closeDrawer}
+        markerPos={markerPos}
+        fetchAllData={fetchAllData}
+        iconCateogry={iconCateogry}
+      />
     </Fragment>
   )
 }

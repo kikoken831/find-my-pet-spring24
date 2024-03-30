@@ -1,6 +1,15 @@
 version: '3.8'
 
 services:
+  geoserver:
+    restart: always
+    image: oscarfonts/geoserver
+    container_name: geoserver
+    volumes:
+      - ./data_dir:/var/local/geoserver
+    ports:
+      - '8060:8080'
+
   postgres:
     image: postgres:latest
     restart: always

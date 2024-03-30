@@ -24,6 +24,7 @@ export const App: React.FC = () => {
 
   return (
     <Router>
+      <Sidebar />
       <Loader />
       <GetRoutes />
       <ToastContainer />
