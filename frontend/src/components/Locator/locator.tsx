@@ -175,6 +175,7 @@ const Locator = () => {
       click: (e: any) => {
         const addBtn = e.originalEvent.target.className
         const { lat, lng } = e.latlng
+
         if (addBtn == 'InsertDog') {
           setIconCateogry('Dog')
           handleInsertClick(e, map, dogIcon)
@@ -196,6 +197,7 @@ const Locator = () => {
     map.addEventListener('click', function handleMouseMove(e: any) {
       const { lat, lng } = e.latlng
       setMarkerPos(e.latlng)
+
       const customIcon = iconImg
 
       const market = L.marker([lat, lng], { icon: customIcon })
@@ -241,7 +243,22 @@ const Locator = () => {
                   const customIcon = shelterIcon
                   let markers = L.marker(latlng, { icon: customIcon })
                   markers.on('click', function (e) {
-                    // setRightDrawerOpen(true)
+                    var content = `<div style="width: 200px;">
+                    <center>
+                      <h2>Animal Shelter</h2>
+                      <img style="width: 125px; height: 100px;" src="${feature.properties.image}" alt="Shelter Image" />
+                      <p style="margin-bottom: 5px;">Name: ${feature.properties.Name}</p>
+                      <p style="margin-bottom: 5px;">Phone: ${feature.properties.Phone}</p>
+                      <p style="margin-bottom: 5px; white-space: nowrap;" title="${feature.properties.Website}">
+                      Website: <a href="${feature.properties.Website}" target="_blank" rel="noopener noreferrer" style="overflow: hidden; text-overflow: ellipsis; display: inline-block; max-width: 100px;">${feature.properties.Website}</a>
+                    </p>
+                      <p style="margin-bottom: 5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="${feature.properties.Address}">Address: ${feature.properties.Address}</p>
+                    </center>
+                  </div>`
+
+                    markers.bindPopup(content).openPopup()
+
+                    setRightDrawerOpen(true)
                   })
                   return markers
                 }}
@@ -260,6 +277,7 @@ const Locator = () => {
 
                     markers.on('click', function (e: any) {
                       var position = markers.getLatLng()
+                      setMarkerPos(position)
                       var content = `<center><h2>Lost Pet Notice</h2>
                         <img width="123" height="100"  src="./tank.jpg"></img>
                         <div style="line-height: 0px;margin-top:10px">Category：${feature.properties.Category}</div>
@@ -272,7 +290,7 @@ const Locator = () => {
                         <a href="/reportHistory">Details</a></center>`
                       markers.bindPopup(content).openPopup()
 
-                      // setRightDrawerOpen(true)
+                      setRightDrawerOpen(true)
                     })
                   }
                   return markers
@@ -292,6 +310,7 @@ const Locator = () => {
                     markers = L.marker(latlng, { icon: customIcon })
                     markers.on('click', function (e: any) {
                       var position = markers.getLatLng()
+                      setMarkerPos(position)
                       var content = `<center><h2>Lost Pet Notice</h2>
                         <img width="123" height="100"  src="./tank.jpg"></img>
                         <div style="line-height: 0px;margin-top:10px">Category：${feature.properties.Category}</div>
@@ -304,7 +323,7 @@ const Locator = () => {
                         <a href="/reportHistory">Details</a></center>`
                       markers.bindPopup(content).openPopup()
 
-                      //  setRightDrawerOpen(true)
+                      setRightDrawerOpen(true)
                     })
                   }
                   return markers
@@ -325,6 +344,7 @@ const Locator = () => {
 
                     markers.on('click', function (e: any) {
                       var position = markers.getLatLng()
+                      setMarkerPos(position)
                       var content = `<center><h2>Lost Pet Notice</h2>
                         <img width="123" height="100"  src="./tank.jpg"></img>
                         <div style="line-height: 0px;margin-top:10px">Category：${feature.properties.Category}</div>
@@ -337,7 +357,7 @@ const Locator = () => {
                         <a href="/reportHistory">Details</a></center>`
                       markers.bindPopup(content).openPopup()
 
-                      // setRightDrawerOpen(true)
+                      setRightDrawerOpen(true)
                     })
                   }
                   return markers
@@ -435,7 +455,8 @@ const Locator = () => {
       <RightDrawer
         rightDrawerOpen={rightDrawerOpen}
         isRightDrawerClose={handleCloseDrawer}
-        geojsonData={geojsonDataRef4.current}
+        markerPos={markerPos}
+        shelterData={geojsonDataRef.current}
       />
       <ChartsDrawer
         open={isStatsDrawerOpen}

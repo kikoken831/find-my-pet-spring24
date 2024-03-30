@@ -1036,15 +1036,421 @@
         "Category": "Dog"
       },
       "bbox": [-84.3408, 33.7892, -84.3408, 33.7892]
+    },
+    {
+      "type": "Feature",
+      "id": "Hamster_Merge.75",
+      "geometry": { "type": "Point", "coordinates": [-84.3794, 33.7388] },
+      "geometry_name": "the_geom",
+      "properties": {
+        "Name": "tank",
+        "Lost_Date": "20201212",
+        "Age": "2",
+        "Weight": "30",
+        "Category": "Dog"
+      },
+      "bbox": [-84.3794, 33.7388, -84.3794, 33.7388]
+    },
+    {
+      "type": "Feature",
+      "id": "Hamster_Merge.76",
+      "geometry": { "type": "Point", "coordinates": [-84.4069, 33.9681] },
+      "geometry_name": "the_geom",
+      "properties": {
+        "Name": "tank",
+        "Lost_Date": "20201212",
+        "Age": "2",
+        "Weight": "30",
+        "Category": "Dog"
+      },
+      "bbox": [-84.4069, 33.9681, -84.4069, 33.9681]
+    },
+    {
+      "type": "Feature",
+      "id": "Hamster_Merge.77",
+      "geometry": { "type": "Point", "coordinates": [-84.352, 33.9743] },
+      "geometry_name": "the_geom",
+      "properties": {
+        "Name": "tank",
+        "Lost_Date": "20201212",
+        "Age": "2",
+        "Weight": "30",
+        "Category": "Dog"
+      },
+      "bbox": [-84.352, 33.9743, -84.352, 33.9743]
+    },
+    {
+      "type": "Feature",
+      "id": "Hamster_Merge.78",
+      "geometry": { "type": "Point", "coordinates": [-84.3806, 33.9257] },
+      "geometry_name": "the_geom",
+      "properties": {
+        "Name": "tank",
+        "Lost_Date": "20201212",
+        "Age": "2",
+        "Weight": "30",
+        "Category": "Dog"
+      },
+      "bbox": [-84.3806, 33.9257, -84.3806, 33.9257]
+    },
+    {
+      "type": "Feature",
+      "id": "Hamster_Merge.79",
+      "geometry": { "type": "Point", "coordinates": [-84.3937, 33.9337] },
+      "geometry_name": "the_geom",
+      "properties": {
+        "Name": "tank",
+        "Lost_Date": "20201212",
+        "Age": "2",
+        "Weight": "30",
+        "Category": "Dog"
+      },
+      "bbox": [-84.3937, 33.9337, -84.3937, 33.9337]
+    },
+    {
+      "type": "Feature",
+      "id": "Hamster_Merge.80",
+      "geometry": { "type": "Point", "coordinates": [-84.2518, 33.9377] },
+      "geometry_name": "the_geom",
+      "properties": {
+        "Name": "hamster",
+        "Lost_Date": "20201010",
+        "Age": "4",
+        "Weight": "5",
+        "Category": "Hamster"
+      },
+      "bbox": [-84.2518, 33.9377, -84.2518, 33.9377]
+    },
+    {
+      "type": "Feature",
+      "id": "Hamster_Merge.81",
+      "geometry": { "type": "Point", "coordinates": [-84.2971, 33.5382] },
+      "geometry_name": "the_geom",
+      "properties": {
+        "Name": "cat",
+        "Lost_Date": "20211019",
+        "Age": "8",
+        "Weight": "15",
+        "Category": "Cat"
+      },
+      "bbox": [-84.2971, 33.5382, -84.2971, 33.5382]
+    },
+    {
+      "type": "Feature",
+      "id": "Hamster_Merge.82",
+      "geometry": { "type": "Point", "coordinates": [-84.2435, 33.5508] },
+      "geometry_name": "the_geom",
+      "properties": {
+        "Name": "cat2",
+        "Lost_Date": "20221024",
+        "Age": "2",
+        "Weight": "7",
+        "Category": "cat"
+      },
+      "bbox": [-84.2435, 33.5508, -84.2435, 33.5508]
+    },
+    {
+      "type": "Feature",
+      "id": "Hamster_Merge.83",
+      "geometry": { "type": "Point", "coordinates": [-84.384, 33.5181] },
+      "geometry_name": "the_geom",
+      "properties": {
+        "Name": "dog",
+        "Lost_Date": "20211101",
+        "Age": "6",
+        "Weight": "3",
+        "Category": "Dog"
+      },
+      "bbox": [-84.384, 33.5181, -84.384, 33.5181]
+    },
+    {
+      "type": "Feature",
+      "id": "Hamster_Merge.84",
+      "geometry": { "type": "Point", "coordinates": [-84.5078, 33.492] },
+      "geometry_name": "the_geom",
+      "properties": {
+        "Name": "cat4",
+        "Lost_Date": "20181002",
+        "Age": "7",
+        "Weight": "20",
+        "Category": "cat"
+      },
+      "bbox": [-84.5078, 33.492, -84.5078, 33.492]
+    },
+    {
+      "type": "Feature",
+      "id": "Hamster_Merge.85",
+      "geometry": { "type": "Point", "coordinates": [-84.3203, 33.4351] },
+      "geometry_name": "the_geom",
+      "properties": {
+        "Name": "gsgsfd",
+        "Lost_Date": "sfdsf",
+        "Age": "sd",
+        "Weight": "sd",
+        "Category": "Hamster"
+      },
+      "bbox": [-84.3203, 33.4351, -84.3203, 33.4351]
+    },
+    {
+      "type": "Feature",
+      "id": "Hamster_Merge.86",
+      "geometry": { "type": "Point", "coordinates": [-84.5687, 33.3537] },
+      "geometry_name": "the_geom",
+      "properties": {
+        "Name": "asd",
+        "Lost_Date": "asdasd",
+        "Age": "as",
+        "Weight": "as",
+        "Category": "cat"
+      },
+      "bbox": [-84.5687, 33.3537, -84.5687, 33.3537]
+    },
+    {
+      "type": "Feature",
+      "id": "Hamster_Merge.87",
+      "geometry": { "type": "Point", "coordinates": [-85.2047, 33.1518] },
+      "geometry_name": "the_geom",
+      "properties": {
+        "Name": "asd",
+        "Lost_Date": "asdasd",
+        "Age": "as",
+        "Weight": "as",
+        "Category": "cat"
+      },
+      "bbox": [-85.2047, 33.1518, -85.2047, 33.1518]
+    },
+    {
+      "type": "Feature",
+      "id": "Hamster_Merge.88",
+      "geometry": { "type": "Point", "coordinates": [-84.3877, 33.2689] },
+      "geometry_name": "the_geom",
+      "properties": {
+        "Name": "",
+        "Lost_Date": "",
+        "Age": "",
+        "Weight": "",
+        "Category": "Dog"
+      },
+      "bbox": [-84.3877, 33.2689, -84.3877, 33.2689]
+    },
+    {
+      "type": "Feature",
+      "id": "Hamster_Merge.89",
+      "geometry": { "type": "Point", "coordinates": [-84.2937, 34.1541] },
+      "geometry_name": "the_geom",
+      "properties": {
+        "Name": "",
+        "Lost_Date": "",
+        "Age": "",
+        "Weight": "",
+        "Category": "Dog"
+      },
+      "bbox": [-84.2937, 34.1541, -84.2937, 34.1541]
+    },
+    {
+      "type": "Feature",
+      "id": "Hamster_Merge.90",
+      "geometry": { "type": "Point", "coordinates": [-84.072, 33.3347] },
+      "geometry_name": "the_geom",
+      "properties": {
+        "Name": "",
+        "Lost_Date": "",
+        "Age": "",
+        "Weight": "",
+        "Category": "Dog"
+      },
+      "bbox": [-84.072, 33.3347, -84.072, 33.3347]
+    },
+    {
+      "type": "Feature",
+      "id": "Hamster_Merge.91",
+      "geometry": { "type": "Point", "coordinates": [-84.2038, 33.324] },
+      "geometry_name": "the_geom",
+      "properties": {
+        "Name": "",
+        "Lost_Date": "",
+        "Age": "",
+        "Weight": "",
+        "Category": "Dog"
+      },
+      "bbox": [-84.2038, 33.324, -84.2038, 33.324]
+    },
+    {
+      "type": "Feature",
+      "id": "Hamster_Merge.92",
+      "geometry": { "type": "Point", "coordinates": [-84.5121, 34.4488] },
+      "geometry_name": "the_geom",
+      "properties": {
+        "Name": "",
+        "Lost_Date": "",
+        "Age": "",
+        "Weight": "",
+        "Category": "Dog"
+      },
+      "bbox": [-84.5121, 34.4488, -84.5121, 34.4488]
+    },
+    {
+      "type": "Feature",
+      "id": "Hamster_Merge.93",
+      "geometry": { "type": "Point", "coordinates": [-84.7459, 34.0175] },
+      "geometry_name": "the_geom",
+      "properties": {
+        "Name": "",
+        "Lost_Date": "",
+        "Age": "",
+        "Weight": "",
+        "Category": "Dog"
+      },
+      "bbox": [-84.7459, 34.0175, -84.7459, 34.0175]
+    },
+    {
+      "type": "Feature",
+      "id": "Hamster_Merge.94",
+      "geometry": { "type": "Point", "coordinates": [-83.5112, 32.4346] },
+      "geometry_name": "the_geom",
+      "properties": {
+        "Name": "",
+        "Lost_Date": "",
+        "Age": "",
+        "Weight": "",
+        "Category": "Dog"
+      },
+      "bbox": [-83.5112, 32.4346, -83.5112, 32.4346]
+    },
+    {
+      "type": "Feature",
+      "id": "Hamster_Merge.95",
+      "geometry": { "type": "Point", "coordinates": [-84.7726, 33.2289] },
+      "geometry_name": "the_geom",
+      "properties": {
+        "Name": "",
+        "Lost_Date": "",
+        "Age": "",
+        "Weight": "",
+        "Category": "Dog"
+      },
+      "bbox": [-84.7726, 33.2289, -84.7726, 33.2289]
+    },
+    {
+      "type": "Feature",
+      "id": "Hamster_Merge.96",
+      "geometry": { "type": "Point", "coordinates": [-85.6984, 34.1204] },
+      "geometry_name": "the_geom",
+      "properties": {
+        "Name": "",
+        "Lost_Date": "",
+        "Age": "",
+        "Weight": "",
+        "Category": "Dog"
+      },
+      "bbox": [-85.6984, 34.1204, -85.6984, 34.1204]
+    },
+    {
+      "type": "Feature",
+      "id": "Hamster_Merge.97",
+      "geometry": { "type": "Point", "coordinates": [-83.3677, 33.9291] },
+      "geometry_name": "the_geom",
+      "properties": {
+        "Name": "",
+        "Lost_Date": "",
+        "Age": "",
+        "Weight": "",
+        "Category": "Hamster"
+      },
+      "bbox": [-83.3677, 33.9291, -83.3677, 33.9291]
+    },
+    {
+      "type": "Feature",
+      "id": "Hamster_Merge.98",
+      "geometry": { "type": "Point", "coordinates": [-83.849, 33.8878] },
+      "geometry_name": "the_geom",
+      "properties": {
+        "Name": "",
+        "Lost_Date": "",
+        "Age": "",
+        "Weight": "",
+        "Category": "Dog"
+      },
+      "bbox": [-83.849, 33.8878, -83.849, 33.8878]
+    },
+    {
+      "type": "Feature",
+      "id": "Hamster_Merge.99",
+      "geometry": { "type": "Point", "coordinates": [-83.8694, 34.4441] },
+      "geometry_name": "the_geom",
+      "properties": {
+        "Name": "",
+        "Lost_Date": "",
+        "Age": "",
+        "Weight": "",
+        "Category": "Dog"
+      },
+      "bbox": [-83.8694, 34.4441, -83.8694, 34.4441]
+    },
+    {
+      "type": "Feature",
+      "id": "Hamster_Merge.100",
+      "geometry": { "type": "Point", "coordinates": [-84.1858, 34.0027] },
+      "geometry_name": "the_geom",
+      "properties": {
+        "Name": "",
+        "Lost_Date": "",
+        "Age": "",
+        "Weight": "",
+        "Category": "Dog"
+      },
+      "bbox": [-84.1858, 34.0027, -84.1858, 34.0027]
+    },
+    {
+      "type": "Feature",
+      "id": "Hamster_Merge.101",
+      "geometry": { "type": "Point", "coordinates": [-81.7793, 27.7774] },
+      "geometry_name": "the_geom",
+      "properties": {
+        "Name": "",
+        "Lost_Date": "",
+        "Age": "",
+        "Weight": "",
+        "Category": "Hamster"
+      },
+      "bbox": [-81.7793, 27.7774, -81.7793, 27.7774]
+    },
+    {
+      "type": "Feature",
+      "id": "Hamster_Merge.102",
+      "geometry": { "type": "Point", "coordinates": [-81.1487, 27.6899] },
+      "geometry_name": "the_geom",
+      "properties": {
+        "Name": "",
+        "Lost_Date": "",
+        "Age": "",
+        "Weight": "",
+        "Category": "cat"
+      },
+      "bbox": [-81.1487, 27.6899, -81.1487, 27.6899]
+    },
+    {
+      "type": "Feature",
+      "id": "Hamster_Merge.103",
+      "geometry": { "type": "Point", "coordinates": [-81.6297, 26.9715] },
+      "geometry_name": "the_geom",
+      "properties": {
+        "Name": "",
+        "Lost_Date": "",
+        "Age": "",
+        "Weight": "",
+        "Category": "Dog"
+      },
+      "bbox": [-81.6297, 26.9715, -81.6297, 26.9715]
     }
   ],
-  "totalFeatures": 74,
-  "numberMatched": 74,
-  "numberReturned": 74,
-  "timeStamp": "2024-03-29T10:04:05.505Z",
+  "totalFeatures": 103,
+  "numberMatched": 103,
+  "numberReturned": 103,
+  "timeStamp": "2024-03-30T10:58:05.062Z",
   "crs": {
     "type": "name",
     "properties": { "name": "urn:ogc:def:crs:EPSG::4326" }
   },
-  "bbox": [-84.555, 33.5522, -84.1685, 33.9391]
+  "bbox": [-85.6984, 26.9715, -81.1487, 34.4488]
 }
