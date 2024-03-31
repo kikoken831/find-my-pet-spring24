@@ -18,13 +18,12 @@ export const App: React.FC = () => {
   const token = useToken()
 
   const GetRoutes = () => {
-    //if (!token) return <UnauthenticatedRoutes />
+    if (!token) return <UnauthenticatedRoutes />
     return <AuthenticatedRoutes />
   }
 
   return (
     <Router>
-      <Sidebar />
       <Loader />
       <GetRoutes />
       <ToastContainer />
@@ -34,13 +33,16 @@ export const App: React.FC = () => {
 
 const AuthenticatedRoutes = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Main />} />
-      <Route path="/report" element={<Report />} />
-      <Route path="/locator" element={<Locator />} />
-      <Route path="/profile" element={<div>myprofile</div>} />
-      <Route path="/reportHistory" element={<ReportHistory />} />
-    </Routes>
+    <>
+      <Sidebar />
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/report" element={<Report />} />
+        <Route path="/locator" element={<Locator />} />
+        <Route path="/profile" element={<div>myprofile</div>} />
+        <Route path="/reportHistory" element={<ReportHistory />} />
+      </Routes>
+    </>
   )
 }
 

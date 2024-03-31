@@ -103,7 +103,7 @@ const Report = () => {
   const token = useSelector((state: RootState) => state.auth.token)
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex', marginBottom: '20px' }}>
       <CssBaseline />
       <AppBar position="fixed" open={open}>
         <Toolbar>
