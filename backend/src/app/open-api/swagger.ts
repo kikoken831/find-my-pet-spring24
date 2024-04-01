@@ -32,7 +32,7 @@ export function useSwagger(app: Application) {
       version: '1.0.0',
     },
     security: [{ bearerAuth: [] }],
-    servers: [{ url: 'http://localhost:8000/service' }],
+    servers: [{ url: 'http://localhost:5000/' }],
   })
 
   app.use('/docs', swaggerUi.serve, swaggerUi.setup(spec))

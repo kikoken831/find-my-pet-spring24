@@ -11,10 +11,10 @@ const RequestMiddleware = async (
 const RequestUrlMiddleware = async (input: RequestInfo, init?: RequestInit) => {
   const { url } = input as Request
 
-  if (!url.includes('localhost:8000')) {
-    console.error('you are requesting from an invalid port number (e.g. 3000).')
-    toast.error('Unable to send the request')
-  }
+  // if (!url.includes('localhost:5000')) {
+  //   console.error('you are requesting from an invalid port number (e.g. 3000).')
+  //   toast.error('Unable to send the request')
+  // }
 }
 
 const RequestHeaderMiddleware = async (
