@@ -341,3 +341,295 @@ java.nio.file.AccessDeniedException: /opt/geoserver/data_dir/workspaces/myworksp
 01 Apr 07:50:23 INFO   [jdbc.JDBCQuotaStore] - Closing up the JDBC quota store 
 01 Apr 07:50:23 WARN   [support.DisposableBeanAdapter] - Custom destroy method 'destroy' on bean with name 'gwcMemoryBlobStore' threw an exception: java.util.concurrent.RejectedExecutionException: Task java.util.concurrent.FutureTask@6cbfd991[Not completed, task = org.geowebcache.storage.blobstore.memory.MemoryBlobStore$BlobStoreTask@773b42b] rejected from java.util.concurrent.ThreadPoolExecutor@51f39d3f[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 1]
 01 Apr 07:50:23 INFO   [geoserver.logging] - Beginning GeoServer cleanup sequence
+CONFIG 2024-04-01 07:50:42,765 [main][Log4J2Logger.java:215] : Logging policy: Log4J2
+CONFIG 2024-04-01 07:50:42,955 [main][Log4J2Logger.java:189] : Factory implementations for category GridCoverageFactory:
+  org.geotools.coverage.grid.GridCoverageFactory
+CONFIG 2024-04-01 07:50:43,249 [main][Log4J2Logger.java:189] : Factory implementations for category FilterFactory:
+  org.geotools.filter.FilterFactoryImpl
+CONFIG 2024-04-01 07:50:43,277 [main][Log4J2Logger.java:189] : Factory implementations for category StyleFactory:
+  org.geotools.styling.StyleFactoryImpl
+CONFIG 2024-04-01 07:50:43,284 [main][Log4J2Logger.java:189] : Factory implementations for category FeatureFactory:
+  org.geotools.feature.LenientFeatureFactoryImpl
+  org.geotools.feature.ValidatingFeatureFactoryImpl
+DEBUG 2024-04-01 07:50:43,604 [main][Log4J2Logger.java:220] : Extension lookup 'XStreamPersisterInitializer', prior to bean geoserverExtensions initialisation.
+DEBUG 2024-04-01 07:50:43,605 [main][Log4J2Logger.java:220] : Extension lookup 'ExtensionFilter', prior to bean geoserverExtensions initialisation.
+DEBUG 2024-04-01 07:50:43,609 [main][Log4J2Logger.java:220] : Extension lookup 'ExtensionProvider', but provided ApplicationContext is unset.
+DEBUG 2024-04-01 07:50:43,610 [main][Log4J2Logger.java:220] : Extension lookup 'ExtensionFilter', but provided ApplicationContext is unset.
+DEBUG 2024-04-01 07:50:43,639 [main][Log4J2Logger.java:220] : CONFIGURING GEOSERVER LOGGING -------------------------
+01 Apr 07:50:43 CONFIG [geoserver.logging] - Log4j 2 configuration set to DEFAULT_LOGGING.xml
+01 Apr 07:50:46 WARN   [geoserver.monitor] - monitoring storage memory not found, falling back to 'memory'
+01 Apr 07:50:46 CONFIG [org.geoserver] - GeoServer configuration lock is enabled
+01 Apr 07:50:46 CONFIG [org.geoserver] - Loading catalog /opt/geoserver/data_dir
+01 Apr 07:50:46 CONFIG [org.geoserver] - Loaded style 'generic'
+01 Apr 07:50:46 CONFIG [org.geoserver] - Loaded style 'point'
+01 Apr 07:50:46 CONFIG [org.geoserver] - Loaded style 'polygon'
+01 Apr 07:50:46 CONFIG [org.geoserver] - Loaded style 'line'
+01 Apr 07:50:46 CONFIG [org.geoserver] - Loaded style 'raster'
+01 Apr 07:50:46 CONFIG [org.geoserver] - Loaded default workspace 'myworkspace'
+01 Apr 07:50:46 CONFIG [org.geoserver] - Loaded workspace 'myworkspace'
+01 Apr 07:50:47 CONFIG [org.geoserver] - Loaded data store 'vector', enabled
+01 Apr 07:50:47 CONFIG [org.geoserver] - Read catalog in 831.9 ms
+01 Apr 07:50:47 CONFIG [org.geoserver] - Loaded service 'csw', enabled
+01 Apr 07:50:47 CONFIG [org.geoserver] - Loaded service 'WFSInfoImpl--6f56c2a3:18e98a3aef6:-8000', enabled
+01 Apr 07:50:47 CONFIG [org.geoserver] - Loaded service 'WMTSInfoImpl--6f56c2a3:18e98a3aef6:-7fff', enabled
+01 Apr 07:50:47 CONFIG [org.geoserver] - Loaded service 'WPSInfoImpl-5be430b:18e989a18dc:-7ff9', enabled
+01 Apr 07:50:47 CONFIG [org.geoserver] - Loaded service 'WMSInfoImpl--6f56c2a3:18e98a3aef6:-7ffe', enabled
+01 Apr 07:50:47 CONFIG [org.geoserver] - Loaded service 'WCSInfoImpl--6f56c2a3:18e98a3aef6:-7ffd', enabled
+01 Apr 07:50:47 CONFIG [org.geoserver] - Loaded service 'WFSInfoImpl-352312dd:18e989e0aa2:-7ffa', enabled
+01 Apr 07:50:48 CONFIG [gwc.config] - Will look for 'geowebcache.xml' in directory '/opt/geoserver/data_dir/gwc'.
+01 Apr 07:50:48 CONFIG [config.XMLConfiguration] - TileLayerConfiguration file validated fine.
+01 Apr 07:50:48 CONFIG [config.XMLConfiguration] - Initializing GridSets from /opt/geoserver/data_dir/gwc
+01 Apr 07:50:48 INFO   [config.XMLConfiguration] - Read GridSet InspireCRS84Quad
+01 Apr 07:50:48 CONFIG [config.XMLConfiguration] - Initializing layers from /opt/geoserver/data_dir/gwc
+01 Apr 07:50:48 CONFIG [gwc.layer] - Initializing GWC configuration based on GeoServer's Catalog
+01 Apr 07:50:48 CONFIG [gwc.layer] - GeoServer TileLayer store base directory is: gwc-layers
+01 Apr 07:50:48 CONFIG [gwc.layer] - Loading tile layers from gwc-layers
+01 Apr 07:50:48 CONFIG [gwc.layer] - Loaded 0 tile layers in 5.013 ms
+01 Apr 07:50:48 CONFIG [storage.BlobStoreAggregator] - BlobStoreConfiguration /opt/geoserver/data_dir/gwc contained no blob store infos.
+01 Apr 07:50:48 CONFIG [storage.DefaultStorageFinder] - Found system environment variableGEOWEBCACHE_CACHE_DIR set to /opt/geoserver/data_dir/gwc, using it as the default prefix.
+01 Apr 07:50:48 CONFIG [gwc.config] - Initializing GeoServer specific GWC configuration from gwc-gs.xml
+01 Apr 07:50:53 INFO   [flow.config] - Loaded control-flow rule: ows.global=100
+01 Apr 07:50:53 INFO   [flow.config] - Loaded control-flow rule: ows.wms.getmap=10
+01 Apr 07:50:53 INFO   [flow.config] - Loaded control-flow rule: ows.wfs.getfeature.application/msexcel=4
+01 Apr 07:50:53 INFO   [flow.config] - Loaded control-flow rule: user=6
+01 Apr 07:50:53 INFO   [flow.config] - Loaded control-flow rule: ows.gwc=16
+01 Apr 07:50:53 INFO   [flow.config] - Loaded control-flow rule: user.ows.wps.execute=1000/d;30s
+01 Apr 07:50:53 CONFIG [geoserver.flow] - Control-flow active with 6 flow controllers
+01 Apr 07:50:55 CONFIG [gwc.config] - Will look for 'geowebcache-diskquota.xml' in directory '/opt/geoserver/data_dir/gwc'.
+01 Apr 07:50:55 CONFIG [gwc.config] - Will look for 'geowebcache-diskquota-jdbc.xml' in directory '/opt/geoserver/data_dir/gwc'.
+01 Apr 07:50:55 CONFIG [diskquota.ConfigLoader] - Quota config is: /opt/geoserver/data_dir/gwc/geowebcache-diskquota.xml
+01 Apr 07:50:55 CONFIG [diskquota.ConfigLoader] - Quota config is: /opt/geoserver/data_dir/gwc/geowebcache-diskquota.xml
+01 Apr 07:50:56 WARN   [turbojpeg.TurboJPEGMapResponse] - The turbo jpeg encoder is available for usage
+01 Apr 07:50:57 INFO   [geoserver.monitor] - Monitor extension enabled
+01 Apr 07:50:57 CONFIG [geowebcache.GeoWebCacheDispatcher] - Invoked setServletPrefix(gwc)
+01 Apr 07:50:57 CONFIG [wms.WMSService] - Will NOT recombine tiles for non-tiling clients.
+01 Apr 07:50:57 CONFIG [wms.WMSService] - Will proxy requests to backend that are not getmap or getcapabilities.
+01 Apr 07:50:57 WARN   [gce.imagemosaic] - Unable to set ordering between tiff readers spi
+01 Apr 07:50:58 CONFIG [geoserver.wps] - Found 5 bindable processes in GeoServer specific processes
+01 Apr 07:50:58 CONFIG [geoserver.wps] - Found 89 bindable processes in Deprecated processes
+01 Apr 07:50:58 CONFIG [geoserver.wps] - Blacklisting process ras:ConvolveCoverage as the input kernel of type class javax.media.jai.KernelJAI cannot be handled
+01 Apr 07:50:58 CONFIG [geoserver.wps] - Blacklisting process ras:RasterZonalStatistics2 as the input zones of type class java.lang.Object cannot be handled
+01 Apr 07:50:58 CONFIG [geoserver.wps] - Blacklisting process ras:RasterZonalStatistics2 as the input nodata of type class it.geosolutions.jaiext.range.Range cannot be handled
+01 Apr 07:50:58 CONFIG [geoserver.wps] - Blacklisting process ras:RasterZonalStatistics2 as the input rangeData of type class java.lang.Object cannot be handled
+01 Apr 07:50:58 CONFIG [geoserver.wps] - Blacklisting process ras:RasterZonalStatistics2 as the output zonal statistics of type interface java.util.List cannot be handled
+01 Apr 07:50:58 CONFIG [geoserver.wps] - Found 18 bindable processes in Raster processes
+01 Apr 07:50:58 CONFIG [geoserver.wps] - Blacklisting process vec:GroupCandidateSelection as the input groupingAttributes of type class java.lang.Object cannot be handled
+01 Apr 07:50:58 CONFIG [geoserver.wps] - Found 31 bindable processes in Vector processes
+01 Apr 07:50:58 CONFIG [geoserver.wps] - Found 48 bindable processes in Geometry processes
+01 Apr 07:50:58 CONFIG [geoserver.wps] - Found 1 bindable processes in PolygonLabelProcess
+01 Apr 07:50:58 CONFIG [geoserver.wps] - Found 1 bindable processes in geo
+01 Apr 07:50:58 CONFIG [geoserver.wps] - Found 1 bindable processes in geo
+01 Apr 07:50:59 CONFIG [diskquota.ConfigLoader] - Quota config is: /opt/geoserver/data_dir/gwc/geowebcache-diskquota.xml
+01 Apr 07:50:59 CONFIG [diskquota.DiskQuotaMonitor] - Setting up disk quota periodic enforcement task
+01 Apr 07:50:59 CONFIG [diskquota.DiskQuotaMonitor] - 0 layers configured with their own quotas. 
+01 Apr 07:50:59 CONFIG [diskquota.DiskQuotaMonitor] - 0 layers attached to global quota 20.0 GB
+01 Apr 07:50:59 CONFIG [diskquota.DiskQuotaMonitor] - Disk quota periodic enforcement task set up every 5 SECONDS
+01 Apr 07:50:59 WARN   [servlet.BaseMapServlet] - Cannot delete file:/usr/local/tomcat/work/Catalina/localhost/geoserver/wicket-filestore
+01 Apr 07:51:00 CONFIG [geoserver.security] - Start reloading user/groups for service named default
+01 Apr 07:51:00 CONFIG [geoserver.security] - Reloading user/groups successful for service named default
+01 Apr 07:51:00 CONFIG [geoserver.security] - AuthenticationCache Initialized with 1000 Max Entries, 300 seconds idle time, 600 seconds time to live and 3 concurrency level
+01 Apr 07:51:00 CONFIG [geoserver.security] - AuthenticationCache Eviction Task created to run every 600 seconds
+01 Apr 07:51:09 WARN   [geoserver.security] - Failed login, user admin from 172.22.0.1
+01 Apr 07:51:09 INFO   [geoserver.security] - Brute force attack prevention, delaying login for 4382ms
+01 Apr 07:51:14 INFO   [geoserver.security] - Strong cryptography is available
+01 Apr 07:51:15 WARN   [geoserver.security] - Failed login, user admin from 172.22.0.1
+01 Apr 07:51:15 INFO   [geoserver.security] - Brute force attack prevention, delaying login for 3703ms
+01 Apr 07:51:28 WARN   [wicket.Localizer] - Tried to retrieve a localized string for a component that has not yet been added to the page. This can sometimes lead to an invalid or no localized resource returned. Make sure you are not calling Component#getString() inside your Component's constructor. Offending component: [ShapefileDirectoryEditPanel [Component id = parametersPanel]]
+01 Apr 07:51:28 WARN   [wicket.Localizer] - Tried to retrieve a localized string for a component that has not yet been added to the page. This can sometimes lead to an invalid or no localized resource returned. Make sure you are not calling Component#getString() inside your Component's constructor. Offending component: [ShapefileDirectoryEditPanel [Component id = parametersPanel]]
+01 Apr 07:53:09 WARN   [wicket.Localizer] - Tried to retrieve a localized string for a component that has not yet been added to the page. This can sometimes lead to an invalid or no localized resource returned. Make sure you are not calling Component#getString() inside your Component's constructor. Offending component: [ShapefileStoreEditPanel [Component id = parametersPanel]]
+01 Apr 07:53:09 WARN   [wicket.Localizer] - Tried to retrieve a localized string for a component that has not yet been added to the page. This can sometimes lead to an invalid or no localized resource returned. Make sure you are not calling Component#getString() inside your Component's constructor. Offending component: [ShapefileStoreEditPanel [Component id = parametersPanel]]
+01 Apr 07:56:31 WARN   [wicket.Localizer] - Tried to retrieve a localized string for a component that has not yet been added to the page. This can sometimes lead to an invalid or no localized resource returned. Make sure you are not calling Component#getString() inside your Component's constructor. Offending component: [ShapefileStoreEditPanel [Component id = parametersPanel]]
+01 Apr 07:56:31 WARN   [wicket.Localizer] - Tried to retrieve a localized string for a component that has not yet been added to the page. This can sometimes lead to an invalid or no localized resource returned. Make sure you are not calling Component#getString() inside your Component's constructor. Offending component: [ShapefileStoreEditPanel [Component id = parametersPanel]]
+01 Apr 07:57:04 INFO   [geoserver.wms] - 
+Request: getServiceInfo
+01 Apr 07:57:04 INFO   [geoserver.flow] - Request [wms 1.0.0 GetLegendGraphic] starting, processing through flow controllers
+01 Apr 07:57:04 INFO   [geoserver.flow] - Request control-flow performed, running requests: 1, blocked requests: 0
+01 Apr 07:57:04 INFO   [geoserver.wms] - 
+Request: getLegendGraphic
+	BaseUrl = http://localhost:8060/geoserver/
+	Env = {}
+	Exceptions = SE_XML
+	FeatureType = null
+	Format = image/png
+	Get = false
+	Height = 20
+	Kvp = {STRICT=false, REQUEST=GetLegendGraphic, FORMAT=image/png, VERSION=1.0.0, STYLE=point, WIDTH=20, HEIGHT=20}
+	Layers = []
+	LegendOptions = {}
+	Legends = [LegendRequest [layer=, name= styleName=point, title=null, legendInfo=null]]
+	Locale = null
+	RawKvp = {STRICT=false, REQUEST=GetLegendGraphic, FORMAT=image/png, VERSION=1.0.0, STYLE=point, WIDTH=20, HEIGHT=20}
+	Request = GetLegendGraphic
+	RequestCharset = null
+	Scale = -1.0
+	Strict = false
+	Transparent = false
+	Version = 1.0.0
+	Width = 20
+	Wms = org.geoserver.wms.WMS@97aaee3
+01 Apr 07:57:04 INFO   [geoserver.flow] - releasing flow controllers for [wms 1.0.0 GetLegendGraphic]
+01 Apr 07:57:04 INFO   [geoserver.flow] - Request completed, running requests: 0, blocked requests: 0
+01 Apr 07:57:30 INFO   [geoserver.gwc] - Saving GeoSeverTileLayer myworkspace:Hamster_Merge
+01 Apr 07:57:35 CONFIG [platform.resource] - Notifying ENTRY_CREATE change on /opt/geoserver/data_dir/gwc-layers. Created: 1, removed: 0, modified: 0
+01 Apr 07:57:35 INFO   [geoserver.wms] - 
+Request: getServiceInfo
+01 Apr 07:57:35 INFO   [geoserver.flow] - Request [WMS 1.1.0 GetMap] starting, processing through flow controllers
+01 Apr 07:57:35 INFO   [geoserver.flow] - Request control-flow performed, running requests: 1, blocked requests: 0
+01 Apr 07:57:36 INFO   [geoserver.wms] - 
+Request: getMap
+	Angle = 0.0
+	BaseUrl = http://localhost:8060/geoserver/
+	Bbox = SRSEnvelope[-85.69837598663729 : -81.14869519837956, 26.971534758748454 : 34.448799187185955]
+	BgColor = java.awt.Color[r=255,g=255,b=255]
+	Buffer = 0
+	Clip = null
+	CQLFilter = null
+	Crs = GEOGCS["WGS 84", 
+  DATUM["World Geodetic System 1984", 
+    SPHEROID["WGS 84", 6378137.0, 298.257223563, AUTHORITY["EPSG","7030"]], 
+    AUTHORITY["EPSG","6326"]], 
+  PRIMEM["Greenwich", 0.0, AUTHORITY["EPSG","8901"]], 
+  UNIT["degree", 0.017453292519943295], 
+  AXIS["Geodetic longitude", EAST], 
+  AXIS["Geodetic latitude", NORTH], 
+  AUTHORITY["EPSG","4326"]]
+	Elevation = []
+	Env = {}
+	Exceptions = SE_XML
+	FeatureId = null
+	FeatureVersion = null
+	Filter = null
+	Format = application/openlayers
+	FormatOptions = {}
+	Get = true
+	Height = 768
+	Interpolations = []
+	Layers = [org.geoserver.wms.MapLayerInfo@ac8cba46]
+	MaxFeatures = null
+	Palette = null
+	RawKvp = {REQUEST=GetMap, SRS=EPSG:4326, FORMAT=application/openlayers, BBOX=-85.69837598663729,26.971534758748454,-81.14869519837956,34.448799187185955, VERSION=1.1.0, STYLES=, SERVICE=WMS, WIDTH=467, HEIGHT=768, LAYERS=myworkspace:Hamster_Merge}
+	RemoteOwsType = null
+	RemoteOwsURL = null
+	Request = GetMap
+	RequestCharset = UTF-8
+	ScaleMethod = null
+	Sld = null
+	SldBody = null
+	SldVersion = null
+	SortBy = null
+	SortByArrays = null
+	SRS = EPSG:4326
+	StartIndex = null
+	StyleBody = null
+	StyleFormat = sld
+	Styles = [StyleImpl[ name=point]]
+	StyleUrl = null
+	StyleVersion = null
+	Tiled = false
+	TilesOrigin = null
+	Time = []
+	Transparent = false
+	ValidateSchema = false
+	Version = 1.1.0
+	ViewParams = null
+	Width = 467
+01 Apr 07:57:36 INFO   [geoserver.flow] - releasing flow controllers for [WMS 1.1.0 GetMap]
+01 Apr 07:57:36 INFO   [geoserver.flow] - Request completed, running requests: 0, blocked requests: 0
+01 Apr 07:57:36 INFO   [geoserver.wms] - 
+Request: getServiceInfo
+01 Apr 07:57:36 INFO   [geoserver.flow] - Request [WMS 1.1.1 GetMap] starting, processing through flow controllers
+01 Apr 07:57:36 INFO   [geoserver.flow] - Request control-flow performed, running requests: 1, blocked requests: 0
+01 Apr 07:57:36 INFO   [geoserver.wms] - 
+Request: getMap
+	Angle = 0.0
+	BaseUrl = http://localhost:8060/geoserver/
+	Bbox = SRSEnvelope[-85.9866943359375 : -80.8516845703125, 26.48583984375 : 34.927734375]
+	BgColor = java.awt.Color[r=255,g=255,b=255]
+	Buffer = 0
+	Clip = null
+	CQLFilter = null
+	Crs = GEOGCS["WGS 84", 
+  DATUM["World Geodetic System 1984", 
+    SPHEROID["WGS 84", 6378137.0, 298.257223563, AUTHORITY["EPSG","7030"]], 
+    AUTHORITY["EPSG","6326"]], 
+  PRIMEM["Greenwich", 0.0, AUTHORITY["EPSG","8901"]], 
+  UNIT["degree", 0.017453292519943295], 
+  AXIS["Geodetic longitude", EAST], 
+  AXIS["Geodetic latitude", NORTH], 
+  AUTHORITY["EPSG","4326"]]
+	Elevation = []
+	Env = {}
+	Exceptions = application/vnd.ogc.se_inimage
+	FeatureId = null
+	FeatureVersion = null
+	Filter = null
+	Format = image/png
+	FormatOptions = {}
+	Get = true
+	Height = 769
+	Interpolations = []
+	Layers = [org.geoserver.wms.MapLayerInfo@ac8cba46]
+	MaxFeatures = null
+	Palette = null
+	RawKvp = {EXCEPTIONS=application/vnd.ogc.se_inimage, REQUEST=GetMap, FORMAT=image/png, SRS=EPSG:4326, BBOX=-85.9866943359375,26.48583984375,-80.8516845703125,34.927734375, VERSION=1.1.1, STYLES=, SERVICE=WMS, WIDTH=468, HEIGHT=769, TRANSPARENT=true, LAYERS=myworkspace:Hamster_Merge}
+	RemoteOwsType = null
+	RemoteOwsURL = null
+	Request = GetMap
+	RequestCharset = UTF-8
+	ScaleMethod = null
+	Sld = null
+	SldBody = null
+	SldVersion = null
+	SortBy = null
+	SortByArrays = null
+	SRS = EPSG:4326
+	StartIndex = null
+	StyleBody = null
+	StyleFormat = sld
+	Styles = [StyleImpl[ name=point]]
+	StyleUrl = null
+	StyleVersion = null
+	Tiled = false
+	TilesOrigin = null
+	Time = []
+	Transparent = true
+	ValidateSchema = false
+	Version = 1.1.1
+	ViewParams = null
+	Width = 468
+01 Apr 07:57:36 INFO   [geoserver.flow] - releasing flow controllers for [WMS 1.1.1 GetMap]
+01 Apr 07:57:36 INFO   [geoserver.flow] - Request completed, running requests: 0, blocked requests: 0
+01 Apr 07:57:51 INFO   [geoserver.wfs] - 
+Request: getServiceInfo
+01 Apr 07:57:51 INFO   [geoserver.flow] - Request [WFS 1.0.0 GetFeature] starting, processing through flow controllers
+01 Apr 07:57:51 INFO   [geoserver.flow] - Request control-flow performed, running requests: 1, blocked requests: 0
+01 Apr 07:57:51 INFO   [geoserver.wfs] - 
+Request: getFeature
+    service = WFS
+    version = 1.0.0
+    baseUrl = http://localhost:8060/geoserver/
+    query[0]:
+        typeName[0] = {google.com}Hamster_Merge
+    maxFeatures = 300
+    outputFormat = application/json
+    resultType = results
+01 Apr 07:57:51 INFO   [wfs.json] - about to encode JSON
+01 Apr 07:57:52 INFO   [geoserver.flow] - releasing flow controllers for [WFS 1.0.0 GetFeature]
+01 Apr 07:57:52 INFO   [geoserver.flow] - Request completed, running requests: 0, blocked requests: 0
+01 Apr 07:59:59 INFO   [geoserver.wfs] - 
+Request: getServiceInfo
+01 Apr 07:59:59 INFO   [geoserver.flow] - Request [WFS 1.0.0 GetFeature] starting, processing through flow controllers
+01 Apr 07:59:59 INFO   [geoserver.flow] - Request control-flow performed, running requests: 1, blocked requests: 0
+01 Apr 07:59:59 INFO   [geoserver.wfs] - 
+Request: getFeature
+    service = WFS
+    version = 1.0.0
+    baseUrl = http://localhost:8060/geoserver/
+    query[0]:
+        typeName[0] = {google.com}Hamster_Merge
+    maxFeatures = 300
+    outputFormat = application/json
+    resultType = results
+01 Apr 07:59:59 INFO   [wfs.json] - about to encode JSON
+01 Apr 07:59:59 INFO   [geoserver.flow] - releasing flow controllers for [WFS 1.0.0 GetFeature]
+01 Apr 07:59:59 INFO   [geoserver.flow] - Request completed, running requests: 0, blocked requests: 0
