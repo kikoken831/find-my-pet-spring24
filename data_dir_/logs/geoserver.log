@@ -633,3 +633,54 @@ Request: getFeature
 01 Apr 07:59:59 INFO   [wfs.json] - about to encode JSON
 01 Apr 07:59:59 INFO   [geoserver.flow] - releasing flow controllers for [WFS 1.0.0 GetFeature]
 01 Apr 07:59:59 INFO   [geoserver.flow] - Request completed, running requests: 0, blocked requests: 0
+01 Apr 08:01:34 INFO   [geoserver.wfs] - 
+Request: getServiceInfo
+01 Apr 08:01:34 INFO   [geoserver.flow] - Request [WFS 1.0.0 GetFeature] starting, processing through flow controllers
+01 Apr 08:01:34 INFO   [geoserver.flow] - Request control-flow performed, running requests: 1, blocked requests: 0
+01 Apr 08:01:34 INFO   [geoserver.wfs] - 
+Request: getFeature
+    service = WFS
+    version = 1.0.0
+    baseUrl = http://localhost:8060/geoserver/
+    query[0]:
+        typeName[0] = {google.com}Hamster_Merge
+    maxFeatures = 300
+    outputFormat = application/json
+    resultType = results
+01 Apr 08:01:34 INFO   [wfs.json] - about to encode JSON
+01 Apr 08:01:34 INFO   [geoserver.flow] - releasing flow controllers for [WFS 1.0.0 GetFeature]
+01 Apr 08:01:34 INFO   [geoserver.flow] - Request completed, running requests: 0, blocked requests: 0
+01 Apr 08:01:36 INFO   [geoserver.wfs] - 
+Request: getServiceInfo
+01 Apr 08:01:36 INFO   [geoserver.flow] - Request [WFS 1.0.0 GetFeature] starting, processing through flow controllers
+01 Apr 08:01:36 INFO   [geoserver.flow] - Request control-flow performed, running requests: 1, blocked requests: 0
+01 Apr 08:01:36 INFO   [geoserver.wfs] - 
+Request: getFeature
+    service = WFS
+    version = 1.0.0
+    baseUrl = http://localhost:8060/geoserver/
+    query[0]:
+        typeName[0] = {google.com}Hamster_Merge
+    maxFeatures = 300
+    outputFormat = application/json
+    resultType = results
+01 Apr 08:01:36 INFO   [wfs.json] - about to encode JSON
+01 Apr 08:01:36 INFO   [geoserver.flow] - releasing flow controllers for [WFS 1.0.0 GetFeature]
+01 Apr 08:01:36 INFO   [geoserver.flow] - Request completed, running requests: 0, blocked requests: 0
+01 Apr 08:01:47 INFO   [geoserver.wfs] - 
+Request: getServiceInfo
+01 Apr 08:01:47 INFO   [geoserver.flow] - Request [WFS 1.0.0 GetFeature] starting, processing through flow controllers
+01 Apr 08:01:47 INFO   [geoserver.flow] - Request control-flow performed, running requests: 1, blocked requests: 0
+01 Apr 08:01:47 INFO   [geoserver.wfs] - 
+Request: getFeature
+    service = WFS
+    version = 1.0.0
+    baseUrl = http://localhost:8060/geoserver/
+    query[0]:
+        typeName[0] = {google.com}Hamster_Merge
+    maxFeatures = 300
+    outputFormat = application/json
+    resultType = results
+01 Apr 08:01:47 INFO   [wfs.json] - about to encode JSON
+01 Apr 08:01:47 INFO   [geoserver.flow] - releasing flow controllers for [WFS 1.0.0 GetFeature]
+01 Apr 08:01:47 INFO   [geoserver.flow] - Request completed, running requests: 0, blocked requests: 0
