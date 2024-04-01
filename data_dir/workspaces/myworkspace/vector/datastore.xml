@@ -1,0 +1,25 @@
+<dataStore>
+  <id>DataStoreInfoImpl-2ac40c44:18e851528d0:-7ffb</id>
+  <name>vector</name>
+  <type>Shapefile</type>
+  <enabled>true</enabled>
+  <workspace>
+    <id>WorkspaceInfoImpl--3111cbd1:18e84e24cfc:-7fe4</id>
+  </workspace>
+  <connectionParameters>
+    <entry key="charset">ISO-8859-1</entry>
+    <entry key="filetype">shapefile</entry>
+    <entry key="create spatial index">true</entry>
+    <entry key="memory mapped buffer">false</entry>
+    <entry key="timezone">Etc/UTC</entry>
+    <entry key="enable spatial index">true</entry>
+    <entry key="namespace">google.com</entry>
+    <entry key="cache and reuse memory maps">true</entry>
+    <entry key="skipScan">true</entry>
+    <entry key="url">file:workspaces/myworkspace/Hamster_Merge.shp</entry>
+    <entry key="fstype">shape</entry>
+  </connectionParameters>
+  <__default>false</__default>
+  <dateCreated>2024-03-28 12:43:11.116 UTC</dateCreated>
+  <disableOnConnFailure>false</disableOnConnFailure>
+</dataStore>

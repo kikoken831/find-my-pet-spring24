@@ -684,3 +684,12 @@ Request: getFeature
 01 Apr 08:01:47 INFO   [wfs.json] - about to encode JSON
 01 Apr 08:01:47 INFO   [geoserver.flow] - releasing flow controllers for [WFS 1.0.0 GetFeature]
 01 Apr 08:01:47 INFO   [geoserver.flow] - Request completed, running requests: 0, blocked requests: 0
+01 Apr 08:05:35 CONFIG [gwc.layer] - GeoServer TileLayer store base directory is: gwc-layers
+01 Apr 08:05:35 CONFIG [gwc.layer] - Loading tile layers from gwc-layers
+01 Apr 08:05:35 CONFIG [gwc.layer] - Loaded 1 tile layers in 63.16 ms
+01 Apr 08:05:35 CONFIG [gwc.layer] - GeoServer TileLayer store base directory is: gwc-layers
+01 Apr 08:05:35 CONFIG [gwc.layer] - Loading tile layers from gwc-layers
+01 Apr 08:05:35 CONFIG [gwc.layer] - Loaded 1 tile layers in 11.56 ms
+01 Apr 08:05:35 INFO   [jdbc.JDBCQuotaStore] - Closing up the JDBC quota store 
+01 Apr 08:05:35 WARN   [support.DisposableBeanAdapter] - Custom destroy method 'destroy' on bean with name 'gwcMemoryBlobStore' threw an exception: java.util.concurrent.RejectedExecutionException: Task java.util.concurrent.FutureTask@94a9cf2[Not completed, task = org.geowebcache.storage.blobstore.memory.MemoryBlobStore$BlobStoreTask@10e1c288] rejected from java.util.concurrent.ThreadPoolExecutor@245d5b76[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 1]
+01 Apr 08:05:35 INFO   [geoserver.logging] - Beginning GeoServer cleanup sequence
