@@ -1,9 +1,9 @@
 <featureType>
-  <id>FeatureTypeInfoImpl--6f56c2a3:18e98a3aef6:-7ff7</id>
+  <id>FeatureTypeInfoImpl--713187cd:18eb20d8d4c:-7ff6</id>
   <name>Hamster_Merge</name>
   <nativeName>Hamster_Merge</nativeName>
   <namespace>
-    <id>NamespaceInfoImpl-5be430b:18e989a18dc:-7ff5</id>
+    <id>NamespaceInfoImpl--713187cd:18eb20d8d4c:-7ffa</id>
   </namespace>
   <title>Hamster_Merge</title>
   <keywords>
@@ -40,7 +40,7 @@
     <entry key="cachingEnabled">false</entry>
   </metadata>
   <store class="dataStore">
-    <id>DataStoreInfoImpl--6f56c2a3:18e98a3aef6:-7ffa</id>
+    <id>DataStoreInfoImpl--713187cd:18eb20d8d4c:-7ff9</id>
   </store>
   <serviceConfiguration>false</serviceConfiguration>
   <simpleConversionEnabled>false</simpleConversionEnabled>
